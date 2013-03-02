@@ -18,6 +18,7 @@ namespace WindowsFormsApplication1
 
         private void button1_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Are you sure you want to update this?", "Confirmation Required", MessageBoxButtons.YesNo);
             MessageBox.Show("Password was changed.", "Update Successful", MessageBoxButtons.OK);
             Close();
         }

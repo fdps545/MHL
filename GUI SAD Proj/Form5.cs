@@ -23,39 +23,47 @@ namespace WindowsFormsApplication1
 
         private void button5_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Are you sure you want to update this?", "Confirmation Required", MessageBoxButtons.YesNo);
+            MessageBox.Show("Are you sure you want to update this?", "Confirmation Required", MessageBoxButtons.YesNo);
             MessageBox.Show("Details successfully updated.", "Update Successful", MessageBoxButtons.OK);
             Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Are you sure you want to update this?", "Confirmation Required", MessageBoxButtons.YesNo);
             MessageBox.Show("Sibling info successfully added.", "Update Successful", MessageBoxButtons.OK);
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Are you sure you want to update this?", "Confirmation Required", MessageBoxButtons.YesNo);
             MessageBox.Show("School info successfully deleted.", "Update Successful", MessageBoxButtons.OK);
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Are you sure you want to update this?", "Confirmation Required", MessageBoxButtons.YesNo);
             MessageBox.Show("Sibling info successfully edited.", "Update Successful", MessageBoxButtons.OK);
 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Are you sure you want to update this?", "Confirmation Required", MessageBoxButtons.YesNo);
             MessageBox.Show("Sibling info successfully deleted.", "Update Successful", MessageBoxButtons.OK);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Are you sure you want to update this?", "Confirmation Required", MessageBoxButtons.YesNo);
             MessageBox.Show("School info successfully added.", "Update Successful", MessageBoxButtons.OK);
 
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Are you sure you want to update this?", "Confirmation Required", MessageBoxButtons.YesNo);
             MessageBox.Show("School info successfully editted.", "Update Successful", MessageBoxButtons.OK);
         }
 

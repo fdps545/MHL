@@ -29,36 +29,43 @@ namespace WindowsFormsApplication1
 
         private void button1_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Are you sure you want to update this?", "Confirmation Required", MessageBoxButtons.YesNo);
             MessageBox.Show("Misconduct successfully updated.", "Update Successful", MessageBoxButtons.OK);
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Are you sure you want to update this?", "Confirmation Required", MessageBoxButtons.YesNo);
             MessageBox.Show("Subject successfully added.", "Update Successful", MessageBoxButtons.OK);
         }
 
         private void button11_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Are you sure you want to update this?", "Confirmation Required", MessageBoxButtons.YesNo);
             MessageBox.Show("Subject successfully deleted.", "Update Successful", MessageBoxButtons.OK);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Are you sure you want to update this?", "Confirmation Required", MessageBoxButtons.YesNo);
             MessageBox.Show("Subject successfully edited.", "Update Successful", MessageBoxButtons.OK);
         }
 
         private void button10_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Are you sure you want to update this?", "Confirmation Required", MessageBoxButtons.YesNo);
             MessageBox.Show("Subject successfully added.", "Update Successful", MessageBoxButtons.OK);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Are you sure you want to update this?", "Confirmation Required", MessageBoxButtons.YesNo);
             MessageBox.Show("Subject successfully edited.", "Update Successful", MessageBoxButtons.OK);
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Are you sure you want to update this?", "Confirmation Required", MessageBoxButtons.YesNo);
             MessageBox.Show("Subject successfully deleted.", "Update Successful", MessageBoxButtons.OK);
         }
     }
