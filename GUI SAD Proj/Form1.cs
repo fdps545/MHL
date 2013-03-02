@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using SchoolClass;
 
 namespace WindowsFormsApplication1
 {
@@ -18,6 +19,7 @@ namespace WindowsFormsApplication1
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            Methods instance = new Methods();
             Form2 main = new Form2();
             main.ShowDialog();
             Close();

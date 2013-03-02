@@ -167,7 +167,7 @@ namespace SchoolClass
 			set;
 		}
 		
-		public bool pstatus
+		public bool paid
 		{
 			get;
 			set;
@@ -330,11 +330,21 @@ namespace SchoolClass
 	{
 		MySqlConnection conn;
 		
-		public Methods(string p)
+		public Methods()
 		{
             conn = new MySqlConnection("server=localhost;database=mydatabase;uid=root;pwd=root;");
 		}
 
-        //put your queries here
+        //t is the type: id no. or surname
+        //q is the keyword for the search
+        public void querySearch(string t, string q)
+        {
+
+        }
+
+        public void filter(int glevel, string section, bool paid)
+        {
+
+        }
 	}
 }

@@ -23,7 +23,11 @@ namespace WindowsFormsApplication1
 
         private void button2_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Are you sure you want to update this?", "Confirmation Required", MessageBoxButtons.YesNo);
+            MessageBox.Show("Are you sure you want to update the this student's information?", "Confirmation Required", MessageBoxButtons.YesNo);
+            if (DialogResult == DialogResult.Yes)
+            {
+                MessageBox.Show("Details successfully updated.", "Update Successful", MessageBoxButtons.OK);
+            }
             Close();
         }
     }
