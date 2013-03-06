@@ -95,6 +95,7 @@ namespace WindowsFormsApplication1
 
         private void button2_Click_1(object sender, EventArgs e)
         {
+            listIt(instance.filter(comboBox4.Text, comboBox5.Text, comboBox6.Text));
             MessageBox.Show("Found X matches.", "Search Result", MessageBoxButtons.OK);
         }
 
@@ -113,7 +114,11 @@ namespace WindowsFormsApplication1
 
         private void button4_Click_1(object sender, EventArgs e)
         {
+            Student a = instance.viewStudent(103523);
+            //Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].ToString())
             Form6 sample = new Form6();
+            string name = a.lname + ", " + a.fname + " " + a.mname + " - " + a.id_no;
+            sample.updateIt(name);
             sample.ShowDialog();
         }
 

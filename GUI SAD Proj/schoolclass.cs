@@ -95,36 +95,6 @@ namespace SchoolClass
 			set;
 		}
 		
-		/*public OContact father 
-		{
-			get;
-			set;
-		}
-		
-		public OContact mother 
-		{
-			get;
-			set;
-		}
-		
-		public OContact guardian 
-		{
-			get;
-			set;
-		}
-		
-		public string sibling_name
-		{
-			get;
-			set;
-		}
-		
-		public int sibling_age
-		{
-			get;
-			set;
-		}*/
-		
 		public string pschool 
 		{
 			get;
@@ -468,9 +438,58 @@ namespace SchoolClass
             return student_coll;
         }
 
-        public void filter(int glevel, string section, bool paid)
+        public List<Student> filter(string glevel, string section, string paid)
         {
+            string query = "";
+            if (glevel != "")
+                query += "grade_level='" + glevel + "'";
+            if (section != "")
+            {
+                if (glevel != "")
+                    query += "AND ";
+                query += "section='" + section + "'";
+            }
+            if (paid != "")
+            {
+                if (glevel != "" || section != "")
+                    query += "AND ";
+                query += "payment_status='" + paid + "'";
+            }
+            query += ";";
 
+            List<Student> student_coll = new List<Student>();
+            conn.Open();
+            string command = "select * from student where " + query;
+            MySqlCommand sqlcomm = new MySqlCommand(command, conn);
+            MySqlDataReader r = sqlcomm.ExecuteReader();
+            while (r.Read())
+            {
+                Student a = new Student();
+                a.id_no = Convert.ToInt32(r.GetValue(0).ToString());
+                a.fname = r.GetValue(1).ToString();
+                a.mname = r.GetValue(2).ToString();
+                a.lname = r.GetValue(3).ToString();
+                a.glevel = r.GetValue(4).ToString();
+                a.section = r.GetValue(5).ToString();
+                a.nickname = r.GetValue(6).ToString();
+                //yay
+                a.sex = r.GetValue(8).ToString();
+                a.border = r.GetValue(9).ToString();
+                a.address = r.GetValue(10).ToString();
+                a.htel = r.GetValue(11).ToString();
+                a.otel = r.GetValue(12).ToString();
+                a.pschool = r.GetValue(13).ToString();
+                a.pgrade = r.GetValue(14).ToString();
+                //yay
+                a.rstatus = r.GetValue(16).ToString();
+                a.pscheme = r.GetValue(17).ToString();
+                a.sy = r.GetValue(18).ToString();
+                a.paid = r.GetValue(19).ToString();
+
+                student_coll.Add(a);
+            }
+            conn.Close();
+            return student_coll;
         }
 
         public List<Student> store()
@@ -514,12 +533,74 @@ namespace SchoolClass
             
             conn.Open();
             List<Student> student_coll = new List<Student>();
-            //missing birthday, birth order, previous school name, previous school grade, date received, requirement status
             string command = "INSERT INTO student(id_number, first_name, middle_initial, last_name, grade_level, section, nickname, birthday, sex, birth_order, home_address, home_phone, office_phone, previous_school_name, previous_school_grade_level, date_received, requirements_status, payment_scheme_type, school_year, payment_status) values(" + id_no + ", '" + fname + "', '" + mname + "', '" + lname + "', '" + glevel + "', '" + section + "', '" + nickname + "', '" + birthday + "', '" + sex + "', '" +  birth_order + "', '" + address + "', '" + htel + "', '" + otel + "', '" + pschool + "', '" + pgrade + "', '" + dreceived + "', '" + rstatus + "', '" + pscheme + "', '" + sy + "', '" + pstatus + "');";
             MySqlCommand sqlcomm = new MySqlCommand(command, conn);
             MySqlDataReader r = sqlcomm.ExecuteReader();
             conn.Close();
         }
+
+        public Student viewStudent(int id_no)
+        {
+            Student a = new Student(); conn.Open();
+            string command = "SELECT * FROM student WHERE id_number=" + id_no + ";";
+            MySqlCommand sqlcomm = new MySqlCommand(command, conn);
+            MySqlDataReader r = sqlcomm.ExecuteReader(); while (r.Read())
+            {
+                a.id_no = Convert.ToInt32(r.GetValue(0).ToString());
+                a.fname = r.GetValue(1).ToString();
+                a.mname = r.GetValue(2).ToString();
+                a.lname = r.GetValue(3).ToString();
+                a.glevel = r.GetValue(4).ToString();
+                a.section = r.GetValue(5).ToString();
+                a.nickname = r.GetValue(6).ToString();
+                a.bday = DateTime.Parse(r.GetValue(7).ToString());
+                a.sex = r.GetValue(8).ToString();
+                a.border = r.GetValue(9).ToString();
+                a.address = r.GetValue(10).ToString();
+                a.htel = r.GetValue(11).ToString();
+                a.otel = r.GetValue(12).ToString();
+                a.pschool = r.GetValue(13).ToString();
+                a.pgrade = r.GetValue(14).ToString();
+                a.rdate = DateTime.Parse(r.GetValue(15).ToString());
+                a.rstatus = r.GetValue(16).ToString();
+                a.pscheme = r.GetValue(17).ToString();
+                a.sy = r.GetValue(18).ToString();
+                a.paid = r.GetValue(19).ToString();
+            }
+            conn.Close();
+            return a;
+        }
+
+        public void addFather(int id_no, string fname, string contact, string address, string occupation)
+        {
+            conn.Open();
+            string command = "INSERT INTO father_information(id_number, father_full_name, father_contact_number, father_address, father_occupation) values(" + id_no + ", '" + fname + "', '" + contact + "', '" + address + "', '" + occupation + "');";
+            MySqlCommand sqlcomm = new MySqlCommand(command, conn);
+            MySqlDataReader r = sqlcomm.ExecuteReader();
+            conn.Close();
+        }
+
+
+        public void addMother(int id_no, string fname, string contact, string address, string occupation)
+        {
+            conn.Open();
+            string command = "INSERT INTO mother_information(id_number, mother_full_name, mother_contact_number, mother_address, mother_occupation) values(" + id_no + ", '" + fname + "', '" + contact + "', '" + address + "', '" + occupation + "');";
+            MySqlCommand sqlcomm = new MySqlCommand(command, conn);
+            MySqlDataReader r = sqlcomm.ExecuteReader();
+            conn.Close();
+        }
+
+
+        public void addGuardian(int id_no, string fname, string contact, string address, string occupation)
+        {
+            conn.Open();
+            string command = "INSERT INTO guardian_information(id_number, guardian_full_name, guardian_contact_number, guardian_address, guardian_occupation) values(" + id_no + ", '" + fname + "', '" + contact + "', '" + address + "', '" + occupation + "');";
+            MySqlCommand sqlcomm = new MySqlCommand(command, conn);
+            MySqlDataReader r = sqlcomm.ExecuteReader();
+            conn.Close();
+        }
+
+
 
         public void addFather()
         {

@@ -6,19 +6,29 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using SchoolClass;
 
 namespace WindowsFormsApplication1
 {
     public partial class Form6 : Form
     {
+        public Student a = new Student();
+        public int id_no = 0;
+
+        public void updateIt(string labelNameID)
+        {
+            label4.Text = labelNameID;
+        }
+
         public Form6()
         {
             InitializeComponent();
         }
 
         private void button5_Click(object sender, EventArgs e)
-        {
+        {            
             Form5 enroll = new Form5();
+            enroll.ShowDialog();
         }
 
         private void button6_Click(object sender, EventArgs e)
