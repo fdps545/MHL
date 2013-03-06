@@ -30,6 +30,8 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.textBox27 = new System.Windows.Forms.TextBox();
+            this.label38 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBox26 = new System.Windows.Forms.TextBox();
             this.label37 = new System.Windows.Forms.Label();
@@ -168,7 +170,7 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Location = new System.Drawing.Point(27, 52);
+            this.tabControl1.Location = new System.Drawing.Point(27, 51);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(338, 511);
@@ -176,6 +178,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.textBox27);
+            this.tabPage1.Controls.Add(this.label38);
             this.tabPage1.Controls.Add(this.groupBox2);
             this.tabPage1.Controls.Add(this.label15);
             this.tabPage1.Controls.Add(this.textBox9);
@@ -206,6 +210,23 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Basic";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // textBox27
+            // 
+            this.textBox27.Location = new System.Drawing.Point(217, 22);
+            this.textBox27.Name = "textBox27";
+            this.textBox27.Size = new System.Drawing.Size(96, 20);
+            this.textBox27.TabIndex = 8;
+            this.textBox27.Text = "103523";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(177, 22);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(38, 13);
+            this.label38.TabIndex = 30;
+            this.label38.Text = "ID No.";
             // 
             // groupBox2
             // 
@@ -387,6 +408,38 @@
             // comboBox4
             // 
             this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31"});
             this.comboBox4.Location = new System.Drawing.Point(258, 237);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(55, 21);
@@ -395,6 +448,19 @@
             // comboBox3
             // 
             this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12"});
             this.comboBox3.Location = new System.Drawing.Point(205, 237);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(50, 21);
@@ -403,6 +469,28 @@
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "1990",
+            "1991",
+            "1992",
+            "1993",
+            "1994",
+            "1995",
+            "1996",
+            "1997",
+            "1998",
+            "1999",
+            "2000",
+            "2001",
+            "2002",
+            "2003",
+            "2004",
+            "2005",
+            "2006",
+            "2007",
+            "2008",
+            "2009",
+            "2010"});
             this.comboBox2.Location = new System.Drawing.Point(130, 237);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(69, 21);
@@ -529,7 +617,7 @@
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(45, 22);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(268, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(118, 20);
             this.dateTimePicker1.TabIndex = 8;
             // 
             // tabPage2
@@ -564,7 +652,7 @@
             // 
             // textBox18
             // 
-            this.textBox18.Location = new System.Drawing.Point(98, 104);
+            this.textBox18.Location = new System.Drawing.Point(98, 26);
             this.textBox18.Name = "textBox18";
             this.textBox18.Size = new System.Drawing.Size(185, 20);
             this.textBox18.TabIndex = 8;
@@ -598,21 +686,21 @@
             // 
             // textBox19
             // 
-            this.textBox19.Location = new System.Drawing.Point(98, 26);
+            this.textBox19.Location = new System.Drawing.Point(98, 52);
             this.textBox19.Name = "textBox19";
             this.textBox19.Size = new System.Drawing.Size(185, 20);
             this.textBox19.TabIndex = 0;
             // 
             // textBox20
             // 
-            this.textBox20.Location = new System.Drawing.Point(98, 52);
+            this.textBox20.Location = new System.Drawing.Point(98, 78);
             this.textBox20.Name = "textBox20";
             this.textBox20.Size = new System.Drawing.Size(185, 20);
             this.textBox20.TabIndex = 1;
             // 
             // textBox21
             // 
-            this.textBox21.Location = new System.Drawing.Point(98, 78);
+            this.textBox21.Location = new System.Drawing.Point(98, 104);
             this.textBox21.Name = "textBox21";
             this.textBox21.Size = new System.Drawing.Size(185, 20);
             this.textBox21.TabIndex = 2;
@@ -645,7 +733,7 @@
             // 
             // textBox14
             // 
-            this.textBox14.Location = new System.Drawing.Point(98, 104);
+            this.textBox14.Location = new System.Drawing.Point(98, 26);
             this.textBox14.Name = "textBox14";
             this.textBox14.Size = new System.Drawing.Size(185, 20);
             this.textBox14.TabIndex = 8;
@@ -679,21 +767,21 @@
             // 
             // textBox15
             // 
-            this.textBox15.Location = new System.Drawing.Point(98, 26);
+            this.textBox15.Location = new System.Drawing.Point(98, 52);
             this.textBox15.Name = "textBox15";
             this.textBox15.Size = new System.Drawing.Size(185, 20);
             this.textBox15.TabIndex = 0;
             // 
             // textBox16
             // 
-            this.textBox16.Location = new System.Drawing.Point(98, 52);
+            this.textBox16.Location = new System.Drawing.Point(98, 78);
             this.textBox16.Name = "textBox16";
             this.textBox16.Size = new System.Drawing.Size(185, 20);
             this.textBox16.TabIndex = 1;
             // 
             // textBox17
             // 
-            this.textBox17.Location = new System.Drawing.Point(98, 78);
+            this.textBox17.Location = new System.Drawing.Point(98, 104);
             this.textBox17.Name = "textBox17";
             this.textBox17.Size = new System.Drawing.Size(185, 20);
             this.textBox17.TabIndex = 2;
@@ -760,21 +848,21 @@
             // 
             // textBox11
             // 
-            this.textBox11.Location = new System.Drawing.Point(98, 26);
+            this.textBox11.Location = new System.Drawing.Point(98, 45);
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(185, 20);
             this.textBox11.TabIndex = 0;
             // 
             // textBox12
             // 
-            this.textBox12.Location = new System.Drawing.Point(98, 52);
+            this.textBox12.Location = new System.Drawing.Point(98, 71);
             this.textBox12.Name = "textBox12";
             this.textBox12.Size = new System.Drawing.Size(185, 20);
             this.textBox12.TabIndex = 1;
             // 
             // textBox10
             // 
-            this.textBox10.Location = new System.Drawing.Point(98, 78);
+            this.textBox10.Location = new System.Drawing.Point(98, 19);
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(185, 20);
             this.textBox10.TabIndex = 2;
@@ -1142,7 +1230,7 @@
             this.label33.Size = new System.Drawing.Size(170, 39);
             this.label33.TabIndex = 6;
             this.label33.Text = "If the child is a transferee, submit a\r\nLetter of Recommendation from\r\nthe previo" +
-                "us school";
+    "us school";
             // 
             // checkBox5
             // 
@@ -1417,6 +1505,8 @@
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.TextBox textBox26;
         private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.TextBox textBox27;
 
     }
 }

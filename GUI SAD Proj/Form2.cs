@@ -6,13 +6,17 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using SchoolClass;
 
 namespace WindowsFormsApplication1
 {
     public partial class Form2 : Form
     {
+        Methods instance;
+
         public Form2()
         {
+            instance = new Methods();
             InitializeComponent();
         }
 
@@ -69,7 +73,24 @@ namespace WindowsFormsApplication1
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            MessageBox.Show("Found X matches.", "Search Result", MessageBoxButtons.OK);
+            string type = "";
+            string input = "";
+            if (textBox1.Text == "" && textBox2.Text == "")
+            {
+                MessageBox.Show("Please type the ID number or the surname.", "Error", MessageBoxButtons.OK);
+            }
+            else if (textBox1.Text == "")
+            {
+                type = "last_name";
+                input = textBox2.Text;
+                listIt(instance.querySearch(type, input));
+            }
+            else
+            {
+                type = "id_number";
+                input = textBox1.Text;
+                listIt(instance.querySearch(type, input));
+            }
         }
 
         private void button2_Click_1(object sender, EventArgs e)
@@ -79,7 +100,15 @@ namespace WindowsFormsApplication1
 
         private void button10_Click_1(object sender, EventArgs e)
         {
+            listIt(instance.store());
             MessageBox.Show("Listed all X students.", "Search Result", MessageBoxButtons.OK);
+        }
+
+        public void listIt(List<Student> student_coll)
+        {
+            dataGridView1.Rows.Clear();
+            foreach (Student a in student_coll)
+                dataGridView1.Rows.Add(a.id_no, a.lname, a.fname, a.glevel, a.section, a.paid);
         }
 
         private void button4_Click_1(object sender, EventArgs e)

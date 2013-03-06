@@ -42,6 +42,12 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -57,12 +63,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -92,7 +92,7 @@
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(209, 284);
+            this.button10.Location = new System.Drawing.Point(209, 285);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(105, 23);
             this.button10.TabIndex = 31;
@@ -211,6 +211,42 @@
             this.dataGridView1.RowHeadersWidth = 20;
             this.dataGridView1.Size = new System.Drawing.Size(414, 257);
             this.dataGridView1.TabIndex = 26;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "ID No.";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 60;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "SN";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 90;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "FN";
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 90;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Grade";
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 50;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Section";
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 50;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Paid";
+            this.Column6.Name = "Column6";
+            this.Column6.Width = 50;
             // 
             // groupBox1
             // 
@@ -367,42 +403,6 @@
             this.label6.TabIndex = 36;
             this.label6.Text = "Sign Out";
             this.label6.Click += new System.EventHandler(this.label6_Click);
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "ID No.";
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 60;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "SN";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 90;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "FN";
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 90;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Grade";
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 50;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Section";
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 50;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Paid";
-            this.Column6.Name = "Column6";
-            this.Column6.Width = 50;
             // 
             // Form2
             // 
