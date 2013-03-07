@@ -396,7 +396,7 @@ namespace SchoolClass
         {
             List<Student> student_coll = new List<Student>();
             conn = new MySqlConnection("server=localhost;database=mhl;uid=root;pwd=root;");
-            store();
+            listAll();
 		}
 
         //t is the type: id no. or surname
@@ -492,7 +492,7 @@ namespace SchoolClass
             return student_coll;
         }
 
-        public List<Student> store()
+        public List<Student> listAll()
         {
             conn.Open();
             List<Student> student_coll = new List<Student>();
@@ -539,12 +539,14 @@ namespace SchoolClass
             conn.Close();
         }
 
-        public Student viewStudent(int id_no)
+        public Student findStudent(int id_no)
         {
-            Student a = new Student(); conn.Open();
+            Student a = new Student();
+            conn.Open();
             string command = "SELECT * FROM student WHERE id_number=" + id_no + ";";
             MySqlCommand sqlcomm = new MySqlCommand(command, conn);
-            MySqlDataReader r = sqlcomm.ExecuteReader(); while (r.Read())
+            MySqlDataReader r = sqlcomm.ExecuteReader(); 
+            while (r.Read())
             {
                 a.id_no = Convert.ToInt32(r.GetValue(0).ToString());
                 a.fname = r.GetValue(1).ToString();
@@ -600,18 +602,58 @@ namespace SchoolClass
             conn.Close();
         }
 
-
-
-        public void addFather()
+        public Father findFather(int id_no)
         {
+            Father f = new Father();
+            conn.Open();
+            string command = "SELECT * FROM father_information WHERE id_number=" + id_no;
+            MySqlCommand sqlcomm = new MySqlCommand(command, conn);
+            MySqlDataReader r = sqlcomm.ExecuteReader();
+            while (r.Read())
+            {
+                f.name = r.GetValue(1).ToString();
+                f.contact_no = r.GetValue(2).ToString();
+                f.address = r.GetValue(3).ToString();
+                f.occupation = r.GetValue(4).ToString();
+            }
+            conn.Close();
+            return f;
         }
 
-        public void addMother()
+        public Mother findMother(int id_no)
         {
+            Mother f = new Mother();
+            conn.Open();
+            string command = "SELECT * FROM mother_information WHERE id_number=" + id_no;
+            MySqlCommand sqlcomm = new MySqlCommand(command, conn);
+            MySqlDataReader r = sqlcomm.ExecuteReader();
+            while (r.Read())
+            {
+                f.name = r.GetValue(1).ToString();
+                f.contact_no = r.GetValue(2).ToString();
+                f.address = r.GetValue(3).ToString();
+                f.occupation = r.GetValue(4).ToString();
+            }
+            conn.Close();
+            return f;
         }
 
-        public void addGuardian()
+        public Guardian findGuardian(int id_no)
         {
+            Guardian f = new Guardian();
+            conn.Open();
+            string command = "SELECT * FROM guardian_information WHERE id_number=" + id_no;
+            MySqlCommand sqlcomm = new MySqlCommand(command, conn);
+            MySqlDataReader r = sqlcomm.ExecuteReader();
+            while (r.Read())
+            {
+                f.name = r.GetValue(1).ToString();
+                f.contact_no = r.GetValue(2).ToString();
+                f.address = r.GetValue(3).ToString();
+                f.occupation = r.GetValue(4).ToString();
+            }
+            conn.Close();
+            return f;
         }
 
 	}

@@ -15,9 +15,15 @@ namespace WindowsFormsApplication1
         public Student a = new Student();
         public int id_no = 0;
 
-        public void updateIt(string labelNameID)
+        public void updateIt(string labelNameID, int id_no)
         {
             label4.Text = labelNameID;
+            label3.Text = Convert.ToString(id_no);
+        }
+
+        public int returnIDNO()
+        {
+            return Convert.ToInt32(label3.Text);
         }
 
         public Form6()
@@ -28,6 +34,8 @@ namespace WindowsFormsApplication1
         private void button5_Click(object sender, EventArgs e)
         {            
             Form5 enroll = new Form5();
+            //enroll.updateEverything(string 
+            enroll.updateStudent();
             enroll.ShowDialog();
         }
 
