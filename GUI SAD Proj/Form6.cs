@@ -13,6 +13,7 @@ namespace WindowsFormsApplication1
     public partial class Form6 : Form
     {
         public Student a = new Student();
+        public Methods instance = new Methods();
         public int id_no = 0;
 
         public void updateIt(string labelNameID, int id_no)
@@ -34,8 +35,7 @@ namespace WindowsFormsApplication1
         private void button5_Click(object sender, EventArgs e)
         {            
             Form5 enroll = new Form5();
-            //enroll.updateEverything(string 
-            enroll.updateStudent();
+            enroll.updateStudent(Convert.ToInt32(label3.Text));
             enroll.ShowDialog();
         }
 
@@ -105,6 +105,19 @@ namespace WindowsFormsApplication1
             {
                 MessageBox.Show("Details successfully updated.", "Update Successful", MessageBoxButtons.OK);
             }
+        }
+
+        private void Form6_Load(object sender, EventArgs e)
+        {
+            listSubjectGrades();
+        }
+
+        public void listSubjectGrades()
+        {
+            dataGridView3.Rows.Clear();
+            List<Student_Grade> sgs = instance.findStudentGradeAcademic(104339);
+            foreach (Student_Grade sg in sgs)
+                dataGridView3.Rows.Add(sg.subject_name, sg.grade_mark );
         }
     }
 }

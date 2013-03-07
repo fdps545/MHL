@@ -261,13 +261,13 @@ namespace SchoolClass
             set;
         }
 
-        public string fullname
+        public string name
         {
             get;
             set;
         }
 
-        public DateTime bdate
+        public string bdate
         {
             get;
             set;
@@ -592,11 +592,19 @@ namespace SchoolClass
             conn.Close();
         }
 
-
         public void addGuardian(int id_no, string fname, string contact, string address, string occupation)
         {
             conn.Open();
             string command = "INSERT INTO guardian_information(id_number, guardian_full_name, guardian_contact_number, guardian_address, guardian_occupation) values(" + id_no + ", '" + fname + "', '" + contact + "', '" + address + "', '" + occupation + "');";
+            MySqlCommand sqlcomm = new MySqlCommand(command, conn);
+            MySqlDataReader r = sqlcomm.ExecuteReader();
+            conn.Close();
+        }
+
+        public void addSibling(int id_no, string fname, string bday)
+        {
+            conn.Open();
+            string command = "INSERT INTO sibling_information(id_number, sibling_full_name, sibling_birthday) values(" + id_no + ", '" + fname + "', '" + bday + "');";
             MySqlCommand sqlcomm = new MySqlCommand(command, conn);
             MySqlDataReader r = sqlcomm.ExecuteReader();
             conn.Close();
@@ -656,5 +664,147 @@ namespace SchoolClass
             return f;
         }
 
+        public List<Sibling> findSiblings(int id_no)
+        {
+            List<Sibling> coll = new List<Sibling>();
+            conn.Open();
+            string command = "SELECT * FROM sibling_information WHERE id_number=" + id_no;
+            MySqlCommand sqlcomm = new MySqlCommand(command, conn);
+            MySqlDataReader r = sqlcomm.ExecuteReader();
+            while (r.Read())
+            {
+                Sibling s = new Sibling();
+                s.id_no = Convert.ToInt32(r.GetValue(0).ToString());
+                s.name = r.GetValue(1).ToString();
+                s.bdate = r.GetValue(2).ToString();
+                coll.Add(s);
+            }
+            conn.Close();
+            return coll;
+        }
+
+        public Subject findSubject(string name)
+        {
+            Subject s = new Subject();
+            conn.Open();
+            string command = "SELECT * FROM subjects WHERE subject_name=" + name;
+            MySqlCommand sqlcomm = new MySqlCommand(command, conn);
+            MySqlDataReader r = sqlcomm.ExecuteReader();
+            while (r.Read())
+            {
+                s.subject_name = r.GetValue(0).ToString();
+                s.sy = r.GetValue(1).ToString();
+            }
+            conn.Close();
+            return s;
+        }
+
+        public List<Student_Grade> findStudentGradeAcademic(int id_no)
+        {
+            List<Student_Grade> coll = new List<Student_Grade>();
+            conn.Open();
+            string command = "SELECT * FROM student_grade WHERE id_number=" + id_no;
+            MySqlCommand sqlcomm = new MySqlCommand(command, conn);
+            MySqlDataReader r = sqlcomm.ExecuteReader();
+            while (r.Read())
+            {
+                Student_Grade s = new Student_Grade();
+                if (r.GetValue(4).ToString().ToLower() == "academic")
+                {
+                    s.id_no = Convert.ToInt32(r.GetValue(0).ToString());
+                    s.subject_name = r.GetValue(1).ToString();
+                    s.sy = r.GetValue(2).ToString();
+                    s.grade_mark = r.GetValue(3).ToString();
+                    s.grade_type = r.GetValue(4).ToString();
+                    coll.Add(s);
+                }
+            }
+            conn.Close();
+            return coll;
+        }
+
+        public void deleteStudent(int id_no)
+        {
+            conn.Open();
+            string command = "DELETE FROM student WHERE id_number=" + id_no;
+            MySqlCommand sqlcomm = new MySqlCommand(command, conn);
+            MySqlDataReader r = sqlcomm.ExecuteReader();
+            conn.Close();
+        }
+
+        public void deleteFather(int id_no)
+        {
+            conn.Open();
+            string command = "DELETE FROM father_information WHERE id_number=" + id_no;
+            MySqlCommand sqlcomm = new MySqlCommand(command, conn);
+            MySqlDataReader r = sqlcomm.ExecuteReader();
+            conn.Close();
+        }
+
+        public void deleteMother(int id_no)
+        {
+            conn.Open();
+            string command = "DELETE FROM mother_information WHERE id_number=" + id_no;
+            MySqlCommand sqlcomm = new MySqlCommand(command, conn);
+            MySqlDataReader r = sqlcomm.ExecuteReader();
+            conn.Close();
+        }
+
+        public void deleteGuardian(int id_no)
+        {
+            conn.Open();
+            string command = "DELETE FROM guardian_information WHERE id_number=" + id_no;
+            MySqlCommand sqlcomm = new MySqlCommand(command, conn);
+            MySqlDataReader r = sqlcomm.ExecuteReader();
+            conn.Close();
+        }
+
+        public void deleteStudentGrades(int id_no)
+        {
+            conn.Open();
+            string command = "DELETE FROM student_grade WHERE id_number=" + id_no;
+            MySqlCommand sqlcomm = new MySqlCommand(command, conn);
+            MySqlDataReader r = sqlcomm.ExecuteReader();
+            conn.Close();
+        }
+
+        public void deleteSibling(int id_no)
+        {
+            conn.Open();
+            string command = "DELETE FROM sibling_information WHERE id_number=" + id_no;
+            MySqlCommand sqlcomm = new MySqlCommand(command, conn);
+            MySqlDataReader r = sqlcomm.ExecuteReader();
+            conn.Close();
+        }
+
+        public void deleteMiscContacts(int id_no)
+        {
+            conn.Open();
+            string command = "DELETE FROM miscellaneous_contacts WHERE id_number=" + id_no;
+            MySqlCommand sqlcomm = new MySqlCommand(command, conn);
+            MySqlDataReader r = sqlcomm.ExecuteReader();
+            conn.Close();
+        }
+
+        public void deleteMisconduct(int id_no)
+        {
+            conn.Open();
+            string command = "DELETE FROM misconduct_details WHERE id_number=" + id_no;
+            MySqlCommand sqlcomm = new MySqlCommand(command, conn);
+            MySqlDataReader r = sqlcomm.ExecuteReader();
+            conn.Close();
+        }
+
+        public void deleteDetails(int id_no)
+        {
+            deleteFather(id_no);
+            deleteMother(id_no);
+            deleteGuardian(id_no);
+            deleteSibling(id_no);
+            deleteStudentGrades(id_no);
+            deleteMiscContacts(id_no);
+            deleteMisconduct(id_no);
+            deleteStudent(id_no);
+        }
 	}
 }

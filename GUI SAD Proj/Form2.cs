@@ -114,8 +114,9 @@ namespace WindowsFormsApplication1
 
         private void button4_Click_1(object sender, EventArgs e)
         {
-            Student a = instance.findStudent(103523);
-            //Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].ToString())
+            //search this
+            int id_no = 103523;
+            Student a = instance.findStudent(id_no);
             Form6 sample = new Form6();
             string name = a.lname + ", " + a.fname + " " + a.mname;
             sample.updateIt(name, a.id_no);
@@ -124,6 +125,11 @@ namespace WindowsFormsApplication1
 
         private void label6_Click(object sender, EventArgs e)
         {
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            instance.deleteDetails(103332);
         }
 
     }

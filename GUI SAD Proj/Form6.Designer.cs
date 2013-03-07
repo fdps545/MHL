@@ -418,7 +418,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Maroon;
-            this.label3.Location = new System.Drawing.Point(200, 52);
+            this.label3.Location = new System.Drawing.Point(602, 52);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 24);
             this.label3.TabIndex = 46;
@@ -436,6 +436,7 @@
             this.Controls.Add(this.label4);
             this.Name = "Form6";
             this.Text = "Student Profile";
+            this.Load += new System.EventHandler(this.Form6_Load);
             this.groupBox2.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
