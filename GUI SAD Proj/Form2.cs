@@ -67,12 +67,6 @@ namespace WindowsFormsApplication1
             enroll.ShowDialog();
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            Form6 info = new Form6();
-            info.ShowDialog();
-        }
-
         private void button1_Click_1(object sender, EventArgs e)
         {
             string type = "";
@@ -118,10 +112,7 @@ namespace WindowsFormsApplication1
         private void button4_Click_1(object sender, EventArgs e)
         {
             int id_no = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
-            Student a = instance.findStudent(id_no);
-            Form6 student_entry = new Form6();
-            string name = a.lname + ", " + a.fname + " " + a.mname;
-            student_entry.updateIt(name, a.id_no);
+            Form6 student_entry = new Form6(id_no);
             student_entry.ShowDialog();
         }
 

@@ -535,7 +535,7 @@ namespace SchoolClass
             List<Student> student_coll = new List<Student>();
             string command = "INSERT INTO student(id_number, first_name, middle_initial, last_name, grade_level, section, nickname, birthday, sex, birth_order, home_address, home_phone, office_phone, previous_school_name, previous_school_grade_level, date_received, requirements_status, payment_scheme_type, school_year, payment_status) values(" + id_no + ", '" + fname + "', '" + mname + "', '" + lname + "', '" + glevel + "', '" + section + "', '" + nickname + "', '" + birthday + "', '" + sex + "', '" +  birth_order + "', '" + address + "', '" + htel + "', '" + otel + "', '" + pschool + "', '" + pgrade + "', '" + dreceived + "', '" + rstatus + "', '" + pscheme + "', '" + sy + "', '" + pstatus + "');";
             MySqlCommand sqlcomm = new MySqlCommand(command, conn);
-            MySqlDataReader r = sqlcomm.ExecuteReader();
+            sqlcomm.ExecuteReader();
             conn.Close();
         }
 
@@ -578,7 +578,7 @@ namespace SchoolClass
             conn.Open();
             string command = "INSERT INTO father_information(id_number, father_full_name, father_contact_number, father_address, father_occupation) values(" + id_no + ", '" + fname + "', '" + contact + "', '" + address + "', '" + occupation + "');";
             MySqlCommand sqlcomm = new MySqlCommand(command, conn);
-            MySqlDataReader r = sqlcomm.ExecuteReader();
+            sqlcomm.ExecuteReader();
             conn.Close();
         }
 
@@ -588,7 +588,7 @@ namespace SchoolClass
             conn.Open();
             string command = "INSERT INTO mother_information(id_number, mother_full_name, mother_contact_number, mother_address, mother_occupation) values(" + id_no + ", '" + fname + "', '" + contact + "', '" + address + "', '" + occupation + "');";
             MySqlCommand sqlcomm = new MySqlCommand(command, conn);
-            MySqlDataReader r = sqlcomm.ExecuteReader();
+            sqlcomm.ExecuteReader();
             conn.Close();
         }
 
@@ -597,7 +597,7 @@ namespace SchoolClass
             conn.Open();
             string command = "INSERT INTO guardian_information(id_number, guardian_full_name, guardian_contact_number, guardian_address, guardian_occupation) values(" + id_no + ", '" + fname + "', '" + contact + "', '" + address + "', '" + occupation + "');";
             MySqlCommand sqlcomm = new MySqlCommand(command, conn);
-            MySqlDataReader r = sqlcomm.ExecuteReader();
+            sqlcomm.ExecuteReader();
             conn.Close();
         }
 
@@ -606,8 +606,44 @@ namespace SchoolClass
             conn.Open();
             string command = "INSERT INTO sibling_information(id_number, sibling_full_name, sibling_birthday) values(" + id_no + ", '" + fname + "', '" + bday + "');";
             MySqlCommand sqlcomm = new MySqlCommand(command, conn);
-            MySqlDataReader r = sqlcomm.ExecuteReader();
+            sqlcomm.ExecuteReader();
             conn.Close();
+        }
+
+        public void addStudentGrade(int id_no, string sn, string sy, string gm, string gtype)
+        {
+            addSubject(sn, sy);
+            conn.Open();
+            string command = "INSERT INTO student_grade(id_number, subject_name, school_year, grade_mark, grade_type) values(" + id_no + ", '" + sn + "', '" + sy + "', '" + gm + "', '" + gtype + "');";
+            MySqlCommand sqlcomm = new MySqlCommand(command, conn);
+            sqlcomm.ExecuteReader();
+            conn.Close();
+
+        }
+
+        public void addSubject(string sn, string sy)
+        {
+            if (!findSubject(sn, sy))
+            {
+                conn.Open();
+                string command = "INSERT INTO subjects(subject_name, school_year) values('" + sn + "', '" + sy + "');";
+                MySqlCommand sqlcomm = new MySqlCommand(command, conn);
+                sqlcomm.ExecuteReader();
+                conn.Close();
+            }
+        }
+
+        public bool findSubject(string sn, string sy)
+        {
+            bool doesExist = false;
+            conn.Open();
+            string command = "SELECT COUNT(*) FROM subjects WHERE subject_name='" + sn + "' AND school_year='" + sy + "';";
+            MySqlCommand sqlcomm = new MySqlCommand(command, conn);
+            int number = Convert.ToInt32(sqlcomm.ExecuteScalar());
+            if (number > 0)
+                doesExist = true;
+            conn.Close();
+            return doesExist;
         }
 
         public Father findFather(int id_no)
@@ -728,7 +764,7 @@ namespace SchoolClass
             conn.Open();
             string command = "DELETE FROM student WHERE id_number=" + id_no;
             MySqlCommand sqlcomm = new MySqlCommand(command, conn);
-            MySqlDataReader r = sqlcomm.ExecuteReader();
+            sqlcomm.ExecuteReader();
             conn.Close();
         }
 
@@ -737,7 +773,7 @@ namespace SchoolClass
             conn.Open();
             string command = "DELETE FROM father_information WHERE id_number=" + id_no;
             MySqlCommand sqlcomm = new MySqlCommand(command, conn);
-            MySqlDataReader r = sqlcomm.ExecuteReader();
+            sqlcomm.ExecuteReader();
             conn.Close();
         }
 
@@ -746,7 +782,7 @@ namespace SchoolClass
             conn.Open();
             string command = "DELETE FROM mother_information WHERE id_number=" + id_no;
             MySqlCommand sqlcomm = new MySqlCommand(command, conn);
-            MySqlDataReader r = sqlcomm.ExecuteReader();
+            sqlcomm.ExecuteReader();
             conn.Close();
         }
 
@@ -755,7 +791,7 @@ namespace SchoolClass
             conn.Open();
             string command = "DELETE FROM guardian_information WHERE id_number=" + id_no;
             MySqlCommand sqlcomm = new MySqlCommand(command, conn);
-            MySqlDataReader r = sqlcomm.ExecuteReader();
+            sqlcomm.ExecuteReader();
             conn.Close();
         }
 
@@ -764,7 +800,7 @@ namespace SchoolClass
             conn.Open();
             string command = "DELETE FROM student_grade WHERE id_number=" + id_no;
             MySqlCommand sqlcomm = new MySqlCommand(command, conn);
-            MySqlDataReader r = sqlcomm.ExecuteReader();
+            sqlcomm.ExecuteReader();
             conn.Close();
         }
 
@@ -773,7 +809,7 @@ namespace SchoolClass
             conn.Open();
             string command = "DELETE FROM sibling_information WHERE id_number=" + id_no;
             MySqlCommand sqlcomm = new MySqlCommand(command, conn);
-            MySqlDataReader r = sqlcomm.ExecuteReader();
+            sqlcomm.ExecuteReader();
             conn.Close();
         }
 
@@ -782,7 +818,7 @@ namespace SchoolClass
             conn.Open();
             string command = "DELETE FROM miscellaneous_contacts WHERE id_number=" + id_no;
             MySqlCommand sqlcomm = new MySqlCommand(command, conn);
-            MySqlDataReader r = sqlcomm.ExecuteReader();
+            sqlcomm.ExecuteReader();
             conn.Close();
         }
 
@@ -791,7 +827,7 @@ namespace SchoolClass
             conn.Open();
             string command = "DELETE FROM misconduct_details WHERE id_number=" + id_no;
             MySqlCommand sqlcomm = new MySqlCommand(command, conn);
-            MySqlDataReader r = sqlcomm.ExecuteReader();
+            sqlcomm.ExecuteReader();
             conn.Close();
         }
 

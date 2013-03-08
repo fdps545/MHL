@@ -12,25 +12,24 @@ namespace WindowsFormsApplication1
 {
     public partial class Form6 : Form
     {
-        public Student a = new Student();
+        public Student a;
         public Methods instance = new Methods();
         public int id_no = 0;
-
-        public void updateIt(string labelNameID, int id_no)
-        {
-            label4.Text = labelNameID;
-            label3.Text = Convert.ToString(id_no);
-            listSubjectGrades(id_no);
-        }
-
+        
         public int returnIDNO()
         {
             return Convert.ToInt32(label3.Text);
         }
 
-        public Form6()
+        public Form6(int id_no)
         {
             InitializeComponent();
+            a = instance.findStudent(id_no);
+            label3.Text = a.id_no.ToString();
+            label5.Text = a.sy;
+            label4.Text = a.lname + ", " + a.fname + " " + a.mname;
+            textBox1.Text = a.sy;
+            listSubjectGrades(id_no);
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -56,10 +55,12 @@ namespace WindowsFormsApplication1
 
         private void button8_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Are you sure you want to update this student's information?", "Confirmation Required", MessageBoxButtons.YesNo);
-            if (DialogResult == DialogResult.Yes)
+            DialogResult dr = MessageBox.Show("Are you sure you want to update this student's information?", "Confirmation Required", MessageBoxButtons.YesNo);
+            if (dr == DialogResult.Yes)
             {
+                instance.addStudentGrade(Convert.ToInt32(label3.Text), textBox27.Text, textBox1.Text, textBox26.Text, comboBox1.Text);
                 MessageBox.Show("Details successfully updated.", "Update Successful", MessageBoxButtons.OK);
+                listSubjectGrades(Convert.ToInt32(label3.Text));
             }
         }
 
@@ -117,7 +118,7 @@ namespace WindowsFormsApplication1
             dataGridView3.Rows.Clear();
             List<Student_Grade> sgs = instance.findStudentGradeAcademic(id_no);
             foreach (Student_Grade sg in sgs)
-                dataGridView3.Rows.Add(sg.subject_name, sg.grade_mark );
+                dataGridView3.Rows.Add(sg.subject_name, sg.grade_mark, sg.sy, sg.grade_type );
         }
     }
 }

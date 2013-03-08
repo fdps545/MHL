@@ -17,6 +17,10 @@ namespace WindowsFormsApplication1
         public Form5()
         {
             InitializeComponent();
+            int year1 = DateTime.Now.Year;
+            int year2 = year1 + 1;
+            string sy = year1 + "-" + year2;
+            textBox23.Text = sy;
         }
 
         public void setID(int id_no)
