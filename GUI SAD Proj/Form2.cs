@@ -96,28 +96,27 @@ namespace WindowsFormsApplication1
         }
 
         private void button2_Click_1(object sender, EventArgs e)
-        {
-            listIt(instance.filter(comboBox4.Text, comboBox5.Text, comboBox6.Text));
-            MessageBox.Show("Found X matches.", "Search Result", MessageBoxButtons.OK);
+        {            
+            listIt(instance.filter(comboBox4.Text, textBox3.Text, comboBox6.Text));
         }
 
         private void button10_Click_1(object sender, EventArgs e)
         {
             listIt(instance.listAll());
-            MessageBox.Show("Listed all X students.", "Search Result", MessageBoxButtons.OK);
         }
 
         public void listIt(List<Student> student_coll)
         {
+            int count = 0;
             dataGridView1.Rows.Clear();
             foreach (Student a in student_coll)
                 dataGridView1.Rows.Add(a.id_no, a.lname, a.fname, a.glevel, a.section, a.paid);
+            count = dataGridView1.Rows.Count - 1;
+            MessageBox.Show("Found " + count + " student(s).", "Search Result", MessageBoxButtons.OK);
         }
 
         private void button4_Click_1(object sender, EventArgs e)
         {
-            //search this
-            //int id_no = 103523;
             int id_no = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
             Student a = instance.findStudent(id_no);
             Form6 student_entry = new Form6();
@@ -128,6 +127,7 @@ namespace WindowsFormsApplication1
 
         private void label6_Click(object sender, EventArgs e)
         {
+            Close();
         }
 
     }
