@@ -12,8 +12,8 @@ namespace WindowsFormsApplication1
 {
     public partial class Form5 : Form
     {
+        public Methods instance = new Methods();
 
-        Methods instance = new Methods();
         public Form5()
         {
             InitializeComponent();
@@ -122,9 +122,6 @@ namespace WindowsFormsApplication1
                     string htel = textBox7.Text;
                     string otel = textBox8.Text;
                     string dreceived = dateTimePicker2.Value.ToString("yyyy-MM-dd");
-                    //other contacts
-                    //glevel, border, pscheme, sy, and paid is ??
-                    //missing birthday, birth order, previous school name, previous school grade, date received, requirement status
                     string border = comboBox5.Text;
                     string glevel = comboBox1.Text;
                     string pscheme = "";
@@ -147,14 +144,12 @@ namespace WindowsFormsApplication1
                     instance.addFather(Convert.ToInt32(textBox27.Text), textBox10.Text, textBox11.Text, textBox12.Text, textBox13.Text);
                     instance.addMother(Convert.ToInt32(textBox27.Text), textBox14.Text, textBox15.Text, textBox16.Text, textBox17.Text);
                     //instance.addGuardian(Convert.ToInt32(textBox18.Text), textBox18.Text, textBox19.Text, textBox20.Text, textBox21.Text);
-                    //add sibling
                     MessageBox.Show("Details successfully updated.", "Update Successful", MessageBoxButtons.OK);
                     Close();
                 }
             }
             else
             {
-                MessageBox.Show("Details successfully updated.", "Update Successful", MessageBoxButtons.OK);
                 instance.deleteDetails(Convert.ToInt32(textBox27.Text));
                 int id_no = Convert.ToInt32(textBox27.Text);
                 string lname = textBox1.Text;
@@ -171,9 +166,6 @@ namespace WindowsFormsApplication1
                 string htel = textBox7.Text;
                 string otel = textBox8.Text;
                 string dreceived = dateTimePicker2.Value.ToString("yyyy-MM-dd");
-                //other contacts
-                //glevel, border, pscheme, sy, and paid is ??
-                //missing birthday, birth order, previous school name, previous school grade, date received, requirement status
                 string border = comboBox5.Text;
                 string glevel = comboBox1.Text;
                 string pscheme = "";
@@ -197,10 +189,10 @@ namespace WindowsFormsApplication1
                 instance.addMother(Convert.ToInt32(textBox27.Text), textBox14.Text, textBox15.Text, textBox16.Text, textBox17.Text);
                 //instance.addGuardian(Convert.ToInt32(textBox18.Text), textBox18.Text, textBox19.Text, textBox20.Text, textBox21.Text);
                 //add sibling
+                MessageBox.Show("Details successfully updated.", "Update Successful", MessageBoxButtons.OK);
             }
         }
 
-        //should have a parameter which searches for the id_no
         public void updateStudent(int id_no)
         {
             Student a = instance.findStudent(id_no);

@@ -90,9 +90,9 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(216, 108);
+            this.button3.Location = new System.Drawing.Point(170, 108);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(84, 23);
+            this.button3.Size = new System.Drawing.Size(130, 23);
             this.button3.TabIndex = 19;
             this.button3.Text = "Edit";
             this.button3.UseVisualStyleBackColor = true;
@@ -132,9 +132,9 @@
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(28, 108);
+            this.button8.Location = new System.Drawing.Point(170, 73);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(87, 23);
+            this.button8.Size = new System.Drawing.Size(130, 23);
             this.button8.TabIndex = 13;
             this.button8.Text = "Add";
             this.button8.UseVisualStyleBackColor = true;
@@ -155,9 +155,9 @@
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(121, 108);
+            this.button9.Location = new System.Drawing.Point(28, 108);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(89, 23);
+            this.button9.Size = new System.Drawing.Size(136, 23);
             this.button9.TabIndex = 12;
             this.button9.Text = "Delete";
             this.button9.UseVisualStyleBackColor = true;
@@ -251,9 +251,9 @@
             this.panel1.Controls.Add(this.groupBox3);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.groupBox2);
-            this.panel1.Location = new System.Drawing.Point(8, 110);
+            this.panel1.Location = new System.Drawing.Point(8, 99);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(624, 423);
+            this.panel1.Size = new System.Drawing.Size(624, 434);
             this.panel1.TabIndex = 44;
             // 
             // panel3
@@ -291,24 +291,26 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Maroon;
-            this.label5.Location = new System.Drawing.Point(530, 55);
+            this.label5.Location = new System.Drawing.Point(556, 52);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(102, 20);
+            this.label5.Size = new System.Drawing.Size(76, 16);
             this.label5.TabIndex = 47;
             this.label5.Text = "XXXX-XXXX";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Maroon;
-            this.label6.Location = new System.Drawing.Point(493, 55);
+            this.label6.Location = new System.Drawing.Point(519, 52);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 20);
+            this.label6.Size = new System.Drawing.Size(29, 16);
             this.label6.TabIndex = 48;
             this.label6.Text = "SY:";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // label7
             // 

@@ -17,9 +17,13 @@ Previous Schools have multiple data items. It should have its own entity?
 Delete miscellaneous_contacts since it can be expanded as properties (misc_contact_name, misc_contact_number) for student.
 Should grade_mark be int or varchar still?
 Should we add a School Year column in the Grades of Student Profile?
+How do we edit grades? If you click the Edit button, does it bring you to a new form where you can edit the grade?
+Can we make misconduct details a property of student? It's only one field entry (data that you keep appending) and not multiple data entries. Takes up resource in the database.
+
 
 THINGS STILL NEED TO FIX / REMINDERS FOR ARA
 
 Refresh/Update - every time you edit the details, you have to refresh everything before the changes become visible
 Make button5_Click method in Form5 more efficient
 Look at the comments for Form5
+Add error handling

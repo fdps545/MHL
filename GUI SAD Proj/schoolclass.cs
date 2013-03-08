@@ -539,40 +539,6 @@ namespace SchoolClass
             conn.Close();
         }
 
-        public Student findStudent(int id_no)
-        {
-            Student a = new Student();
-            conn.Open();
-            string command = "SELECT * FROM student WHERE id_number=" + id_no + ";";
-            MySqlCommand sqlcomm = new MySqlCommand(command, conn);
-            MySqlDataReader r = sqlcomm.ExecuteReader(); 
-            while (r.Read())
-            {
-                a.id_no = Convert.ToInt32(r.GetValue(0).ToString());
-                a.fname = r.GetValue(1).ToString();
-                a.mname = r.GetValue(2).ToString();
-                a.lname = r.GetValue(3).ToString();
-                a.glevel = r.GetValue(4).ToString();
-                a.section = r.GetValue(5).ToString();
-                a.nickname = r.GetValue(6).ToString();
-                a.bday = DateTime.Parse(r.GetValue(7).ToString());
-                a.sex = r.GetValue(8).ToString();
-                a.border = r.GetValue(9).ToString();
-                a.address = r.GetValue(10).ToString();
-                a.htel = r.GetValue(11).ToString();
-                a.otel = r.GetValue(12).ToString();
-                a.pschool = r.GetValue(13).ToString();
-                a.pgrade = r.GetValue(14).ToString();
-                a.rdate = DateTime.Parse(r.GetValue(15).ToString());
-                a.rstatus = r.GetValue(16).ToString();
-                a.pscheme = r.GetValue(17).ToString();
-                a.sy = r.GetValue(18).ToString();
-                a.paid = r.GetValue(19).ToString();
-            }
-            conn.Close();
-            return a;
-        }
-
         public void addFather(int id_no, string fname, string contact, string address, string occupation)
         {
             conn.Open();
@@ -581,8 +547,7 @@ namespace SchoolClass
             sqlcomm.ExecuteReader();
             conn.Close();
         }
-
-
+        
         public void addMother(int id_no, string fname, string contact, string address, string occupation)
         {
             conn.Open();
@@ -631,6 +596,44 @@ namespace SchoolClass
                 sqlcomm.ExecuteReader();
                 conn.Close();
             }
+        }
+
+        public void addMisconduct()
+        {
+        }
+       
+        public Student findStudent(int id_no)
+        {
+            Student a = new Student();
+            conn.Open();
+            string command = "SELECT * FROM student WHERE id_number=" + id_no + ";";
+            MySqlCommand sqlcomm = new MySqlCommand(command, conn);
+            MySqlDataReader r = sqlcomm.ExecuteReader();
+            while (r.Read())
+            {
+                a.id_no = Convert.ToInt32(r.GetValue(0).ToString());
+                a.fname = r.GetValue(1).ToString();
+                a.mname = r.GetValue(2).ToString();
+                a.lname = r.GetValue(3).ToString();
+                a.glevel = r.GetValue(4).ToString();
+                a.section = r.GetValue(5).ToString();
+                a.nickname = r.GetValue(6).ToString();
+                a.bday = DateTime.Parse(r.GetValue(7).ToString());
+                a.sex = r.GetValue(8).ToString();
+                a.border = r.GetValue(9).ToString();
+                a.address = r.GetValue(10).ToString();
+                a.htel = r.GetValue(11).ToString();
+                a.otel = r.GetValue(12).ToString();
+                a.pschool = r.GetValue(13).ToString();
+                a.pgrade = r.GetValue(14).ToString();
+                a.rdate = DateTime.Parse(r.GetValue(15).ToString());
+                a.rstatus = r.GetValue(16).ToString();
+                a.pscheme = r.GetValue(17).ToString();
+                a.sy = r.GetValue(18).ToString();
+                a.paid = r.GetValue(19).ToString();
+            }
+            conn.Close();
+            return a;
         }
 
         public bool findSubject(string sn, string sy)
@@ -826,6 +829,15 @@ namespace SchoolClass
         {
             conn.Open();
             string command = "DELETE FROM misconduct_details WHERE id_number=" + id_no;
+            MySqlCommand sqlcomm = new MySqlCommand(command, conn);
+            sqlcomm.ExecuteReader();
+            conn.Close();
+        }
+
+        public void deleteStudentGrade(int id_no, string sn, string sy)
+        {
+            conn.Open();
+            string command = "DELETE FROM student_grade WHERE id_number=" + id_no + " AND subject_name='" + sn + "' AND school_year='" + sy + "';";
             MySqlCommand sqlcomm = new MySqlCommand(command, conn);
             sqlcomm.ExecuteReader();
             conn.Close();

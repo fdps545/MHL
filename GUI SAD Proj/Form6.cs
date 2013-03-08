@@ -59,8 +59,8 @@ namespace WindowsFormsApplication1
             if (dr == DialogResult.Yes)
             {
                 instance.addStudentGrade(Convert.ToInt32(label3.Text), textBox27.Text, textBox1.Text, textBox26.Text, comboBox1.Text);
-                MessageBox.Show("Details successfully updated.", "Update Successful", MessageBoxButtons.OK);
                 listSubjectGrades(Convert.ToInt32(label3.Text));
+                MessageBox.Show("Details successfully updated.", "Update Successful", MessageBoxButtons.OK);
             }
         }
 
@@ -102,9 +102,14 @@ namespace WindowsFormsApplication1
 
         private void button9_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Are you sure you want to update this student's information?", "Confirmation Required", MessageBoxButtons.YesNo);
-            if (DialogResult == DialogResult.Yes)
+            DialogResult dr = MessageBox.Show("Are you sure you want to update this student's information?", "Confirmation Required", MessageBoxButtons.YesNo);
+            if (dr == DialogResult.Yes)
             {
+                int id_no = Convert.ToInt32(label3.Text.ToString());
+                string sn = dataGridView3.SelectedRows[0].Cells[0].Value.ToString();
+                string sy = dataGridView3.SelectedRows[0].Cells[2].Value.ToString();
+                instance.deleteStudentGrade(id_no, sn, sy);
+                listSubjectGrades(Convert.ToInt32(label3.Text));
                 MessageBox.Show("Details successfully updated.", "Update Successful", MessageBoxButtons.OK);
             }
         }
