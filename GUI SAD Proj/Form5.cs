@@ -19,6 +19,11 @@ namespace WindowsFormsApplication1
             InitializeComponent();
         }
 
+        public void setID(int id_no)
+        {
+            textBox27.Text = id_no.ToString();
+        }
+
         private void button6_Click(object sender, EventArgs e)
         {
             Close();

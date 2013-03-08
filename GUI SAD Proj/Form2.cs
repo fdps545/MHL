@@ -62,6 +62,8 @@ namespace WindowsFormsApplication1
         private void button9_Click(object sender, EventArgs e)
         {
             Form5 enroll = new Form5();
+            int id_no = instance.setIDNo();
+            enroll.setID(id_no);
             enroll.ShowDialog();
         }
 
@@ -115,21 +117,17 @@ namespace WindowsFormsApplication1
         private void button4_Click_1(object sender, EventArgs e)
         {
             //search this
-            int id_no = 103523;
+            //int id_no = 103523;
+            int id_no = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
             Student a = instance.findStudent(id_no);
-            Form6 sample = new Form6();
+            Form6 student_entry = new Form6();
             string name = a.lname + ", " + a.fname + " " + a.mname;
-            sample.updateIt(name, a.id_no);
-            sample.ShowDialog();
+            student_entry.updateIt(name, a.id_no);
+            student_entry.ShowDialog();
         }
 
         private void label6_Click(object sender, EventArgs e)
         {
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            instance.deleteDetails(103332);
         }
 
     }

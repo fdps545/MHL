@@ -806,5 +806,20 @@ namespace SchoolClass
             deleteMisconduct(id_no);
             deleteStudent(id_no);
         }
+
+        public int setIDNo()
+        {
+            int id_no = 0;
+            conn.Open();
+            string command = "SELECT COUNT(*) FROM student";
+            MySqlCommand sqlcomm = new MySqlCommand(command, conn);
+            int r = Convert.ToInt32(sqlcomm.ExecuteScalar());
+            r += 1;
+            string year = Convert.ToString(DateTime.Now.Year);
+            string together = year.Substring(1, 3) + r.ToString().PadLeft(4, '0'); ;
+            id_no = Convert.ToInt32(together);
+            conn.Close();
+            return id_no;
+        }
 	}
 }

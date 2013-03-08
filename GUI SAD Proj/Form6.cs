@@ -20,6 +20,7 @@ namespace WindowsFormsApplication1
         {
             label4.Text = labelNameID;
             label3.Text = Convert.ToString(id_no);
+            listSubjectGrades(id_no);
         }
 
         public int returnIDNO()
@@ -109,13 +110,12 @@ namespace WindowsFormsApplication1
 
         private void Form6_Load(object sender, EventArgs e)
         {
-            listSubjectGrades();
         }
 
-        public void listSubjectGrades()
+        public void listSubjectGrades(int id_no)
         {
             dataGridView3.Rows.Clear();
-            List<Student_Grade> sgs = instance.findStudentGradeAcademic(104339);
+            List<Student_Grade> sgs = instance.findStudentGradeAcademic(id_no);
             foreach (Student_Grade sg in sgs)
                 dataGridView3.Rows.Add(sg.subject_name, sg.grade_mark );
         }
