@@ -58,11 +58,18 @@ namespace WindowsFormsApplication1
             DialogResult dr = MessageBox.Show("Are you sure you want to update this student's information?", "Confirmation Required", MessageBoxButtons.YesNo);
             if (dr == DialogResult.Yes)
             {
-                instance.addStudentGrade(Convert.ToInt32(label3.Text), textBox27.Text, textBox1.Text, textBox26.Text, comboBox1.Text);
-                listSubjectGrades(Convert.ToInt32(label3.Text));
+                instance.addStudentGrade(a.id_no, textBox27.Text, textBox1.Text, textBox26.Text, comboBox1.Text);
+                listSubjectGrades(a.id_no);
+                foreach (Control ctrl in groupBox2.Controls)
+                {
+                    if (ctrl.GetType() == typeof(TextBox))
+                        ((TextBox)ctrl).Clear();
+                }
+                textBox1.Text = a.sy;
                 MessageBox.Show("Details successfully updated.", "Update Successful", MessageBoxButtons.OK);
             }
         }
+        
 
         private void button11_Click(object sender, EventArgs e)
         {
@@ -75,9 +82,19 @@ namespace WindowsFormsApplication1
 
         private void button3_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Are you sure you want to update this student's information?", "Confirmation Required", MessageBoxButtons.YesNo);
-            if (DialogResult == DialogResult.Yes)
+            DialogResult rs = MessageBox.Show("Are you sure you want to update this student's information?", "Confirmation Required", MessageBoxButtons.YesNo);
+            if (rs == DialogResult.Yes)
             {
+                instance.deleteStudentGrade(a.id_no, getSubjectName, getSchoolYear);
+                instance.addStudentGrade(a.id_no, textBox27.Text, textBox1.Text, textBox26.Text, comboBox1.Text);
+                listSubjectGrades(a.id_no);
+                foreach (Control ctrl in groupBox2.Controls)
+                {
+                    if (ctrl.GetType() == typeof(TextBox))
+                        ((TextBox)ctrl).Clear();
+                }
+                button3.Enabled = false;
+                textBox1.Text = a.sy;
                 MessageBox.Show("Details successfully updated.", "Update Successful", MessageBoxButtons.OK);
             }
         }
@@ -124,6 +141,29 @@ namespace WindowsFormsApplication1
             List<Student_Grade> sgs = instance.findStudentGradeAcademic(id_no);
             foreach (Student_Grade sg in sgs)
                 dataGridView3.Rows.Add(sg.subject_name, sg.grade_mark, sg.sy, sg.grade_type );
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            textBox27.Text = dataGridView3.SelectedRows[0].Cells[0].Value.ToString();
+            textBox26.Text = dataGridView3.SelectedRows[0].Cells[1].Value.ToString();
+            textBox1.Text = dataGridView3.SelectedRows[0].Cells[2].Value.ToString();
+            comboBox1.Text = dataGridView3.SelectedRows[0].Cells[3].Value.ToString();
+            getSubjectName = textBox27.Text;
+            getSchoolYear = textBox1.Text;
+            button3.Enabled = true;
+        }
+
+        public string getSchoolYear
+        {
+            get;
+            set;
+        }
+
+        public string getSubjectName
+        {
+            get;
+            set;
         }
     }
 }

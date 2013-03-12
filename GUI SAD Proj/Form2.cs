@@ -22,6 +22,9 @@ namespace WindowsFormsApplication1
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            List<String> sections = instance.findSections();
+            foreach (string a in sections)
+                comboBox1.Items.Add(a);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -91,7 +94,7 @@ namespace WindowsFormsApplication1
 
         private void button2_Click_1(object sender, EventArgs e)
         {            
-            listIt(instance.filter(comboBox4.Text, textBox3.Text, comboBox6.Text));
+            listIt(instance.filter(comboBox4.Text, comboBox1.Text , comboBox6.Text));
         }
 
         private void button10_Click_1(object sender, EventArgs e)

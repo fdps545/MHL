@@ -19,8 +19,8 @@ home_phone VARCHAR(15),
 office_phone VARCHAR(15),
 previous_school_name VARCHAR(60) ,
 previous_school_grade_level VARCHAR(60) ,
-date_received DATE,
-requirements_status VARCHAR(20),
+date_received DATE ,
+requirements_status VARCHAR(5),
 payment_scheme_type VARCHAR(20),
 school_year VARCHAR(10),
 payment_status VARCHAR(255)
@@ -90,11 +90,11 @@ FOREIGN KEY (subject_name, school_year) REFERENCES subjects(subject_name, school
 );
 
 CREATE TABLE miscellaneous_contacts(
-id_number INT(15),
-m_contact_first_name VARCHAR(50),
-m_contact_mi VARCHAR(3),
-m_contact_last_name VARCHAR(50),
-m_contact_information VARCHAR(255),
+id_number INT(15) NOT NULL PRIMARY KEY,
+misc_contact_full_name VARCHAR(255) NOT NULL,
+misc_contact_number VARCHAR(15),
+misc_contact_address VARCHAR(255),
+nuisc_contact_occupation VARCHAR(100),
 PRIMARY KEY (id_number),
 FOREIGN KEY (id_number) REFERENCES student(id_number)
 );
@@ -141,17 +141,62 @@ VALUES(
 'Dom',
 "1994-05-03",
 'M',
-'Eldest',
+'1st',
 'Taguig City',
 '5451482',
 '1231231',
 'UPRHS',
-'4rth Year Highschool',
+'4th Year Highschool',
 "2013-04-03",
-'Incomplete',
+'10011',
 'Annual',
 '2013-2014',
 'Unpaid'
+);
+
+INSERT INTO student(
+id_number,
+first_name,
+middle_initial,
+last_name,
+grade_level,
+section,
+nickname,
+birthday,
+sex,
+birth_order,
+home_address,
+office_phone,
+home_phone,
+previous_school_name,
+previous_school_grade_level,
+date_received,
+requirements_status,
+payment_scheme_type,
+school_year,
+payment_status
+)
+VALUES(
+'103523',
+'Dayanara',
+'F.',
+'Simon',
+'Senior Casa',
+'Block S1',
+'Ara',
+"1993-11-21",
+'F',
+'1st',
+'Quezon City',
+'7148266',
+'09053933582',
+'STC',
+'4th Year Highschool',
+"2013-04-03",
+'11111',
+'Annual',
+'2013-2014',
+'Paid'
 );
 
 INSERT INTO father_information(

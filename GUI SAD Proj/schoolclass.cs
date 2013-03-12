@@ -574,6 +574,15 @@ namespace SchoolClass
             sqlcomm.ExecuteReader();
             conn.Close();
         }
+        
+        public void addMiscContacts(int id_no, string fname, string contact, string address, string occupation)
+        {
+            conn.Open();
+            string command = "INSERT INTO miscellaneous_contacts(id_number, misc_contact_full_name, misc_contact_contact_number, misc_contact_address, misc_contact_occupation) values(" + id_no + ", '" + fname + "', '" + contact + "', '" + address + "', '" + occupation + "');";
+            MySqlCommand sqlcomm = new MySqlCommand(command, conn);
+            sqlcomm.ExecuteReader();
+            conn.Close();
+        }
 
         public void addStudentGrade(int id_no, string sn, string sy, string gm, string gtype)
         {
@@ -807,7 +816,7 @@ namespace SchoolClass
             conn.Close();
         }
 
-        public void deleteSibling(int id_no)
+        public void deleteSiblings(int id_no)
         {
             conn.Open();
             string command = "DELETE FROM sibling_information WHERE id_number=" + id_no;
@@ -834,6 +843,23 @@ namespace SchoolClass
             conn.Close();
         }
 
+        public List<String> findSections()
+        {
+            List<String> coll = new List<String>();
+            conn.Open();
+            string command = "SELECT DISTINCT section FROM student";
+            MySqlCommand sqlcomm = new MySqlCommand(command, conn);
+            MySqlDataReader r = sqlcomm.ExecuteReader();
+            while (r.Read())
+            {
+                string s = r.GetValue(0).ToString();
+                coll.Add(s);
+            }
+            conn.Close();
+            return coll;
+        }
+
+        //mass delete vs single delete
         public void deleteStudentGrade(int id_no, string sn, string sy)
         {
             conn.Open();
@@ -848,9 +874,9 @@ namespace SchoolClass
             deleteFather(id_no);
             deleteMother(id_no);
             deleteGuardian(id_no);
-            deleteSibling(id_no);
+            deleteSiblings(id_no);
             deleteStudentGrades(id_no);
-            deleteMiscContacts(id_no);
+            //deleteMiscContacts(id_no);
             deleteMisconduct(id_no);
             deleteStudent(id_no);
         }
