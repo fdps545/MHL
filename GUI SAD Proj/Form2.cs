@@ -68,6 +68,7 @@ namespace WindowsFormsApplication1
             int id_no = instance.setIDNo();
             enroll.setID(id_no);
             enroll.ShowDialog();
+            listIt(instance.listAll());
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -90,26 +91,29 @@ namespace WindowsFormsApplication1
                 input = textBox1.Text;
                 listIt(instance.querySearch(type, input));
             }
+            int count = dataGridView1.Rows.Count - 1;
+            MessageBox.Show("Found " + count + " student(s).", "Search Result", MessageBoxButtons.OK);
         }
 
         private void button2_Click_1(object sender, EventArgs e)
-        {            
-            listIt(instance.filter(comboBox4.Text, comboBox1.Text , comboBox6.Text));
+        {
+            listIt(instance.filter(comboBox4.Text, comboBox1.Text));
+            int count = dataGridView1.Rows.Count - 1;
+            MessageBox.Show("Found " + count + " student(s).", "Search Result", MessageBoxButtons.OK);
         }
 
         private void button10_Click_1(object sender, EventArgs e)
         {
             listIt(instance.listAll());
+            int count = dataGridView1.Rows.Count - 1;
+            MessageBox.Show("Found " + count + " student(s).", "Search Result", MessageBoxButtons.OK);
         }
 
         public void listIt(List<Student> student_coll)
         {
-            int count = 0;
             dataGridView1.Rows.Clear();
             foreach (Student a in student_coll)
-                dataGridView1.Rows.Add(a.id_no, a.lname, a.fname, a.glevel, a.section, a.paid);
-            count = dataGridView1.Rows.Count - 1;
-            MessageBox.Show("Found " + count + " student(s).", "Search Result", MessageBoxButtons.OK);
+                dataGridView1.Rows.Add(a.id_no, a.lname, a.fname, a.glevel, a.section);
         }
 
         private void button4_Click_1(object sender, EventArgs e)
@@ -117,11 +121,24 @@ namespace WindowsFormsApplication1
             int id_no = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
             Form6 student_entry = new Form6(id_no);
             student_entry.ShowDialog();
+            listIt(instance.listAll());
         }
 
         private void label6_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this student from the database?", "Confirmation Required", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                int id_no = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+                instance.deleteDetails(id_no);
+                listIt(instance.listAll());
+                MessageBox.Show("Deleted student.", "Update Successful", MessageBoxButtons.OK);
+            }
         }
 
     }

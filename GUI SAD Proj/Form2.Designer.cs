@@ -34,19 +34,12 @@
             this.button9 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
-            this.label14 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -62,7 +55,12 @@
             this.label5 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -92,29 +90,29 @@
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(209, 285);
+            this.button10.Location = new System.Drawing.Point(16, 284);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(105, 23);
+            this.button10.Size = new System.Drawing.Size(87, 23);
             this.button10.TabIndex = 31;
-            this.button10.Text = "List All Students";
+            this.button10.Text = "List All";
             this.button10.UseVisualStyleBackColor = true;
             this.button10.Click += new System.EventHandler(this.button10_Click_1);
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(16, 284);
+            this.button9.Location = new System.Drawing.Point(108, 284);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(95, 23);
+            this.button9.Size = new System.Drawing.Size(79, 23);
             this.button9.TabIndex = 30;
-            this.button9.Text = "Enroll a Student";
+            this.button9.Text = "Enroll";
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(320, 284);
+            this.button3.Location = new System.Drawing.Point(332, 284);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(110, 23);
+            this.button3.Size = new System.Drawing.Size(98, 23);
             this.button3.TabIndex = 28;
             this.button3.Text = "Print Student List";
             this.button3.UseVisualStyleBackColor = true;
@@ -122,8 +120,6 @@
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.comboBox1);
-            this.groupBox6.Controls.Add(this.comboBox6);
-            this.groupBox6.Controls.Add(this.label14);
             this.groupBox6.Controls.Add(this.comboBox4);
             this.groupBox6.Controls.Add(this.label15);
             this.groupBox6.Controls.Add(this.button2);
@@ -135,25 +131,13 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Filter";
             // 
-            // comboBox6
+            // comboBox1
             // 
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Items.AddRange(new object[] {
-            "Paid",
-            "Unpaid"});
-            this.comboBox6.Location = new System.Drawing.Point(80, 55);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(108, 21);
-            this.comboBox6.TabIndex = 8;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(11, 55);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(28, 13);
-            this.label14.TabIndex = 7;
-            this.label14.Text = "Paid\r\n";
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(80, 77);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(108, 21);
+            this.comboBox1.TabIndex = 9;
             // 
             // comboBox4
             // 
@@ -169,7 +153,7 @@
             "4",
             "5",
             "6"});
-            this.comboBox4.Location = new System.Drawing.Point(80, 28);
+            this.comboBox4.Location = new System.Drawing.Point(80, 36);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(108, 21);
             this.comboBox4.TabIndex = 5;
@@ -177,7 +161,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(11, 82);
+            this.label15.Location = new System.Drawing.Point(11, 77);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(43, 13);
             this.label15.TabIndex = 4;
@@ -185,7 +169,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(14, 120);
+            this.button2.Location = new System.Drawing.Point(14, 121);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(174, 23);
             this.button2.TabIndex = 0;
@@ -196,7 +180,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(11, 31);
+            this.label16.Location = new System.Drawing.Point(11, 39);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(65, 13);
             this.label16.TabIndex = 2;
@@ -210,49 +194,12 @@
             this.Column2,
             this.Column3,
             this.Column5,
-            this.Column4,
-            this.Column6});
+            this.Column4});
             this.dataGridView1.Location = new System.Drawing.Point(16, 21);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 20;
             this.dataGridView1.Size = new System.Drawing.Size(414, 257);
             this.dataGridView1.TabIndex = 26;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "ID No.";
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 60;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "SN";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 90;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "FN";
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 90;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Grade";
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 50;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Section";
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 50;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Paid";
-            this.Column6.Name = "Column6";
-            this.Column6.Width = 50;
             // 
             // groupBox1
             // 
@@ -335,6 +282,7 @@
             // 
             // groupBox8
             // 
+            this.groupBox8.Controls.Add(this.button5);
             this.groupBox8.Controls.Add(this.button4);
             this.groupBox8.Controls.Add(this.dataGridView1);
             this.groupBox8.Controls.Add(this.button10);
@@ -342,16 +290,16 @@
             this.groupBox8.Controls.Add(this.button9);
             this.groupBox8.Location = new System.Drawing.Point(240, 10);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(450, 317);
+            this.groupBox8.Size = new System.Drawing.Size(457, 317);
             this.groupBox8.TabIndex = 32;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Student List";
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(117, 284);
+            this.button4.Location = new System.Drawing.Point(262, 284);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(86, 23);
+            this.button4.Size = new System.Drawing.Size(64, 23);
             this.button4.TabIndex = 32;
             this.button4.Text = "View Student";
             this.button4.UseVisualStyleBackColor = true;
@@ -410,13 +358,43 @@
             this.label6.Text = "Sign Out";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
-            // comboBox1
+            // button5
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(80, 82);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(108, 21);
-            this.comboBox1.TabIndex = 9;
+            this.button5.Location = new System.Drawing.Point(191, 284);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(65, 23);
+            this.button5.TabIndex = 33;
+            this.button5.Text = "Delete";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "ID No.";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 60;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "SN";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "FN";
+            this.Column3.Name = "Column3";
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Grade";
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 80;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Section";
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 80;
             // 
             // Form2
             // 
@@ -456,8 +434,6 @@
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.ComboBox comboBox6;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button button2;
@@ -478,12 +454,12 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

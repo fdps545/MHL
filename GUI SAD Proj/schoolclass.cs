@@ -438,7 +438,7 @@ namespace SchoolClass
             return student_coll;
         }
 
-        public List<Student> filter(string glevel, string section, string paid)
+        public List<Student> filter(string glevel, string section)
         {
             string query = "";
             if (glevel != "")
@@ -448,12 +448,6 @@ namespace SchoolClass
                 if (glevel != "")
                     query += "AND ";
                 query += "section='" + section + "'";
-            }
-            if (paid != "")
-            {
-                if (glevel != "" || section != "")
-                    query += "AND ";
-                query += "payment_status='" + paid + "'";
             }
             query += ";";
 

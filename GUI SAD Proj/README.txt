@@ -15,11 +15,13 @@ Grade in Student Profile is no longer in tab format. Instead, the DataGridView h
 	
 COMMENTS / SUGGESTIONS
 	
-* What if you want to delete the whole student file?
-* Additional information for payment has no property. payment_scheme_type and payment_status are different.
+* Need foreign key for sibling other than id_no
+* Need table for previous school
 * Class Schedule isn't a property but it's still part of the enrollment form. How do we handle this data?
 	No class_schedule property/table in database
 * Previous Schools have multiple data items. It should have its own entity?
+Additional information for payment has no property. payment_scheme_type and payment_status are different.
+What if you want to delete the whole student file?
 Data handling for Requirements in the Enrollment Form is problematic. There are a lot of fields but the database only accepts one data item
 Delete miscellaneous_contacts since it can be expanded as properties (misc_contact_name, misc_contact_number) for student.
 Should grade_mark be int or varchar still?
@@ -30,12 +32,11 @@ Can we make misconduct details a property of student? It's only one field entry 
 
 THINGS STILL NEED TO FIX / REMINDERS FOR ARA
 
-refresh/Update - every time you edit the details, you have to refresh everything before the changes become visible
-look at the comments for Form5
+x refresh/Update - every time you edit the details, you have to refresh everything before the changes become visible
 add error handling
 adding misc contacts
 adding of schools
-re-adding of grades
+x re-adding of grades
 re-adding of siblings
 mass deletion vs single entry deletion
-
+add class schedule

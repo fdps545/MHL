@@ -43,7 +43,6 @@ namespace WindowsFormsApplication1
                 string name = textBox22.Text;
                 string bday = comboBox9.Text+"-"+comboBox8.Text+"-"+comboBox7.Text;
                 dataGridView1.Rows.Add(name, bday);
-                instance.addSibling(id_no, name, bday);
                 MessageBox.Show("Details successfully updated.", "Update Successful", MessageBoxButtons.OK);
             }
         }
@@ -112,8 +111,20 @@ namespace WindowsFormsApplication1
             }
             else
             {
+                List<Student_Grade> sgs = instance.findStudentGradeAcademic(Convert.ToInt32(textBox27.Text));
+                List<Sibling> sbs = instance.findSiblings(Convert.ToInt32(textBox27.Text));
                 instance.deleteDetails(Convert.ToInt32(textBox27.Text));
                 createStudent();
+                foreach (Student_Grade sg in sgs)
+                {
+                    instance.addStudentGrade(sg.id_no, sg.subject_name, sg.sy, sg.grade_mark, sg.grade_type);
+                }
+                foreach (Sibling sb in sbs)
+                {
+                    DateTime db = Convert.ToDateTime(sb.bdate);
+                    string bdate = db.Year + "-" + db.Month + "-" + db.Day;
+                    instance.addSibling(sb.id_no, sb.name, bdate);
+                }
                 MessageBox.Show("Details successfully updated.", "Update Successful", MessageBoxButtons.OK);
             }
         }
@@ -170,6 +181,13 @@ namespace WindowsFormsApplication1
             instance.addMother(id_no, textBox14.Text, textBox15.Text, textBox16.Text, textBox17.Text);
             instance.addGuardian(id_no, textBox18.Text, textBox19.Text, textBox20.Text, textBox21.Text);
 
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {                
+                string name = row.Cells[0].Value.ToString();
+                DateTime db = Convert.ToDateTime(row.Cells[1].Value.ToString());
+                string date = db.Year + "-" + db.Month + "-" + db.Day;
+                instance.addSibling(id_no, name, date);
+            }
             //add sibling
         }
 

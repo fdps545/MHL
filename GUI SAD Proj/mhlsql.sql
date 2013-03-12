@@ -99,6 +99,12 @@ PRIMARY KEY (id_number),
 FOREIGN KEY (id_number) REFERENCES student(id_number)
 );
 
+CREATE TABLE previous_school (
+id_number INT(15) NOT NULL PRIMARY KEY,
+school_name VARCHAR(255) NOT NULL,
+school_grade VARCHAR(255) NOT NULL
+);
+
 CREATE TABLE misconduct_details(
 id_number INT(15),
 mis_first_name VARCHAR(50),
@@ -244,21 +250,47 @@ VALUES(
 '104339', 'Calculus', '2013-2014', '92', 'Academic'
 );
 
-INSERT INTO miscellaneous_contacts(
-id_number, m_contact_first_name, m_contact_mi, m_contact_last_name, m_contact_information
+INSERT INTO father_information(
+id_number, father_full_name, father_contact_number, father_address, father_occupation
 )
-VALUES (
-'104339', 'Mis Contact', 'P.', 'Norris', '091588473'
+VALUES
+(
+'103523', 'Roland M. Simon', '123123132', 'Quezon City', 'Supervisor Chief Engineer'
 );
 
-
-INSERT INTO misconduct_details(
-id_number, mis_first_name, mis_mi, mis_last_name, misconduct_details
+INSERT INTO mother_information(
+id_number, mother_full_name, mother_contact_number, mother_address, mother_occupation
 )
-VALUES (
-'104339', 'Francis Dominic', 'P.', 'Santos', 'Did not say good morning to the teacher.'
+VALUES
+(
+'103523', 'Sheila Marie F. Simon', '09189502498', 'Quezon City', 'Housewife'
 );
 
+INSERT INTO guardian_information(
+id_number, guardian_full_name, guardian_contact_number, guardian_address, guardian_occupation
+)
+VALUES
+(
+'103523', 'Marie Antoinette', '09178554590', 'Katipunan Avenue', 'Queen'
+);
 
+INSERT INTO sibling_information(
+id_number, sibling_full_name, sibling_birthday
+)
+VALUES(
+'103523', 'Niegel F. Simon', "1996-09-20"
+);
 
+INSERT INTO subjects(
+subject_name,school_year
+)
+VALUES(
+'English', '2013-2014'
+);
 
+INSERT INTO student_grade(
+id_number, subject_name, school_year, grade_mark, grade_type
+)
+VALUES(
+'103523', 'English', '2013-2014', '94', 'Academic'
+);
