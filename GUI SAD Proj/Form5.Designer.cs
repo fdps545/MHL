@@ -95,17 +95,19 @@
             this.label19 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button15 = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
             this.textBox5 = new System.Windows.Forms.TextBox();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.button14 = new System.Windows.Forms.Button();
             this.comboBox7 = new System.Windows.Forms.ComboBox();
             this.comboBox8 = new System.Windows.Forms.ComboBox();
             this.comboBox9 = new System.Windows.Forms.ComboBox();
@@ -117,6 +119,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button2 = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.label35 = new System.Windows.Forms.Label();
@@ -893,13 +896,14 @@
             // 
             // groupBox8
             // 
+            this.groupBox8.Controls.Add(this.button3);
+            this.groupBox8.Controls.Add(this.button4);
+            this.groupBox8.Controls.Add(this.button9);
+            this.groupBox8.Controls.Add(this.button15);
             this.groupBox8.Controls.Add(this.label15);
             this.groupBox8.Controls.Add(this.textBox9);
             this.groupBox8.Controls.Add(this.label10);
-            this.groupBox8.Controls.Add(this.button4);
             this.groupBox8.Controls.Add(this.textBox5);
-            this.groupBox8.Controls.Add(this.button9);
-            this.groupBox8.Controls.Add(this.button3);
             this.groupBox8.Controls.Add(this.dataGridView2);
             this.groupBox8.Location = new System.Drawing.Point(15, 262);
             this.groupBox8.Name = "groupBox8";
@@ -907,6 +911,48 @@
             this.groupBox8.TabIndex = 11;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Previous Schools";
+            // 
+            // button3
+            // 
+            this.button3.Enabled = false;
+            this.button3.Location = new System.Drawing.Point(156, 74);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(128, 23);
+            this.button3.TabIndex = 47;
+            this.button3.TabStop = false;
+            this.button3.Text = "Save Changes";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click_1);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(156, 45);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(128, 23);
+            this.button4.TabIndex = 45;
+            this.button4.Text = "Edit";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click_1);
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(12, 45);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(138, 23);
+            this.button9.TabIndex = 44;
+            this.button9.Text = "Add";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click_1);
+            // 
+            // button15
+            // 
+            this.button15.Location = new System.Drawing.Point(12, 74);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(138, 23);
+            this.button15.TabIndex = 46;
+            this.button15.Text = "Delete";
+            this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
             // 
             // label15
             // 
@@ -933,15 +979,6 @@
             this.label10.TabIndex = 40;
             this.label10.Text = "Name";
             // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(156, 55);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(128, 23);
-            this.button4.TabIndex = 41;
-            this.button4.Text = "Edit";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
             // textBox5
             // 
             this.textBox5.Location = new System.Drawing.Point(50, 19);
@@ -949,33 +986,15 @@
             this.textBox5.Size = new System.Drawing.Size(87, 20);
             this.textBox5.TabIndex = 41;
             // 
-            // button9
-            // 
-            this.button9.Location = new System.Drawing.Point(12, 55);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(138, 23);
-            this.button9.TabIndex = 40;
-            this.button9.Text = "Add";
-            this.button9.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(12, 172);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(272, 23);
-            this.button3.TabIndex = 40;
-            this.button3.Text = "Delete";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column3,
             this.Column4});
-            this.dataGridView2.Location = new System.Drawing.Point(12, 84);
+            this.dataGridView2.Location = new System.Drawing.Point(12, 103);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(272, 82);
+            this.dataGridView2.Size = new System.Drawing.Size(272, 98);
             this.dataGridView2.TabIndex = 40;
             // 
             // Column3
@@ -990,6 +1009,7 @@
             // 
             // groupBox7
             // 
+            this.groupBox7.Controls.Add(this.button14);
             this.groupBox7.Controls.Add(this.comboBox7);
             this.groupBox7.Controls.Add(this.comboBox8);
             this.groupBox7.Controls.Add(this.comboBox9);
@@ -1006,6 +1026,17 @@
             this.groupBox7.TabIndex = 4;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Siblings";
+            // 
+            // button14
+            // 
+            this.button14.Enabled = false;
+            this.button14.Location = new System.Drawing.Point(156, 108);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(128, 23);
+            this.button14.TabIndex = 40;
+            this.button14.Text = "Save Changes";
+            this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
             // 
             // comboBox7
             // 
@@ -1148,8 +1179,9 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
-            this.Column2});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 108);
+            this.Column2,
+            this.Column9});
+            this.dataGridView1.Location = new System.Drawing.Point(12, 137);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(272, 85);
             this.dataGridView1.TabIndex = 0;
@@ -1161,14 +1193,19 @@
             // 
             // Column2
             // 
-            this.Column2.HeaderText = "Age";
+            this.Column2.HeaderText = "Date of Birth";
             this.Column2.Name = "Column2";
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Age";
+            this.Column9.Name = "Column9";
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(12, 199);
+            this.button2.Location = new System.Drawing.Point(12, 108);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(272, 23);
+            this.button2.Size = new System.Drawing.Size(138, 23);
             this.button2.TabIndex = 39;
             this.button2.Text = "Delete";
             this.button2.UseVisualStyleBackColor = true;
@@ -1210,6 +1247,10 @@
             // comboBox6
             // 
             this.comboBox6.FormattingEnabled = true;
+            this.comboBox6.Items.AddRange(new object[] {
+            "a.m.",
+            "p.m.",
+            "Full"});
             this.comboBox6.Location = new System.Drawing.Point(106, 458);
             this.comboBox6.Name = "comboBox6";
             this.comboBox6.Size = new System.Drawing.Size(200, 21);
@@ -1409,15 +1450,18 @@
             this.button13.TabIndex = 16;
             this.button13.Text = "Delete";
             this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // button12
             // 
+            this.button12.Enabled = false;
             this.button12.Location = new System.Drawing.Point(158, 196);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(157, 23);
             this.button12.TabIndex = 15;
             this.button12.Text = "Save Changes";
             this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // button11
             // 
@@ -1427,6 +1471,7 @@
             this.button11.TabIndex = 14;
             this.button11.Text = "Edit";
             this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // button10
             // 
@@ -1558,7 +1603,7 @@
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(95, 23);
             this.button5.TabIndex = 57;
-            this.button5.Text = "Submit";
+            this.button5.Text = "Submit / Save";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
@@ -1723,8 +1768,6 @@
         private System.Windows.Forms.TextBox textBox22;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Label label35;
@@ -1766,10 +1809,7 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
@@ -1791,6 +1831,14 @@
         private System.Windows.Forms.TextBox textBox28;
         private System.Windows.Forms.TextBox textBox29;
         private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
 
     }
 }

@@ -12,14 +12,16 @@ namespace WindowsFormsApplication1
 {
     public partial class Form1 : Form
     {
+        Methods instance;
+
         public Form1()
         {
             InitializeComponent();
+            instance = new Methods();
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            Methods instance = new Methods();
             Form2 main = new Form2();
             main.ShowDialog();
             Close();

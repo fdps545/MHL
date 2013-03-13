@@ -95,18 +95,6 @@ namespace SchoolClass
 			set;
 		}
 		
-		public string pschool 
-		{
-			get;
-			set;
-		}
-		
-		public string pgrade 
-		{
-			get;
-			set;
-		}
-		
 		public DateTime rdate
         {
 			get;
@@ -136,9 +124,36 @@ namespace SchoolClass
 			get;
 			set;
 		}
+
+        public string schedule
+        {
+            get;
+            set;
+        }
 		
 	}
-	
+
+    public class Previous_School
+    {
+        public int id_no
+        {
+            get;
+            set;
+        }
+
+        public string name
+        {
+            get;
+            set;
+        }
+
+        public string grade
+        {
+            get;
+            set;
+        }
+    }
+
 	public class Account
 	{
 		public string username
@@ -369,19 +384,19 @@ namespace SchoolClass
             set;
         }
 
-        public string mname
+        public string contact
         {
             get;
             set;
         }
 
-        public string lname
+        public string address
         {
             get;
             set;
         }
 
-        public string other_information
+        public string occupation
         {
             get;
             set;
@@ -417,21 +432,6 @@ namespace SchoolClass
                 a.lname = r.GetValue(3).ToString();
                 a.glevel = r.GetValue(4).ToString();
                 a.section = r.GetValue(5).ToString();
-                a.nickname = r.GetValue(6).ToString();
-                //yay
-                a.sex = r.GetValue(8).ToString();
-                a.border = r.GetValue(9).ToString();
-                a.address = r.GetValue(10).ToString();
-                a.htel = r.GetValue(11).ToString();
-                a.otel = r.GetValue(12).ToString();
-                a.pschool = r.GetValue(13).ToString();
-                a.pgrade = r.GetValue(14).ToString();
-                //yay
-                a.rstatus = r.GetValue(16).ToString();
-                a.pscheme = r.GetValue(17).ToString();
-                a.sy = r.GetValue(18).ToString();
-                a.paid = r.GetValue(19).ToString();
-
                 student_coll.Add(a);
             }
             conn.Close();
@@ -465,7 +465,7 @@ namespace SchoolClass
                 a.lname = r.GetValue(3).ToString();
                 a.glevel = r.GetValue(4).ToString();
                 a.section = r.GetValue(5).ToString();
-                a.nickname = r.GetValue(6).ToString();
+                /*a.nickname = r.GetValue(6).ToString();
                 //yay
                 a.sex = r.GetValue(8).ToString();
                 a.border = r.GetValue(9).ToString();
@@ -478,7 +478,7 @@ namespace SchoolClass
                 a.rstatus = r.GetValue(16).ToString();
                 a.pscheme = r.GetValue(17).ToString();
                 a.sy = r.GetValue(18).ToString();
-                a.paid = r.GetValue(19).ToString();
+                a.paid = r.GetValue(19).ToString();*/
 
                 student_coll.Add(a);
             }
@@ -502,19 +502,6 @@ namespace SchoolClass
                 a.glevel = r.GetValue(4).ToString();
                 a.section = r.GetValue(5).ToString();
                 a.nickname = r.GetValue(6).ToString();
-                //yay
-                a.sex = r.GetValue(8).ToString();
-                a.border = r.GetValue(9).ToString();
-                a.address = r.GetValue(10).ToString();
-                a.htel = r.GetValue(11).ToString();
-                a.otel = r.GetValue(12).ToString();
-                a.pschool = r.GetValue(13).ToString();
-                a.pgrade = r.GetValue(14).ToString();
-                //yay
-                a.rstatus = r.GetValue(16).ToString();
-                a.pscheme = r.GetValue(17).ToString();
-                a.sy = r.GetValue(18).ToString();
-                a.paid = r.GetValue(19).ToString();
                                
                 student_coll.Add(a);
             }
@@ -522,12 +509,12 @@ namespace SchoolClass
             return student_coll;
         }
 
-        public void addStudent(int id_no, string fname, string mname, string lname, string glevel, string section, string nickname, string birthday, string sex, string birth_order, string address, string htel, string otel, string pschool, string pgrade, string dreceived, string rstatus, string pscheme, string sy, string pstatus)
+        public void addStudent(int id_no, string fname, string mname, string lname, string glevel, string section, string nickname, string birthday, string sex, string birth_order, string address, string htel, string otel, string dreceived, string rstatus, string pscheme, string sy, string pstatus, string sched)
         {
             
             conn.Open();
             List<Student> student_coll = new List<Student>();
-            string command = "INSERT INTO student(id_number, first_name, middle_initial, last_name, grade_level, section, nickname, birthday, sex, birth_order, home_address, home_phone, office_phone, previous_school_name, previous_school_grade_level, date_received, requirements_status, payment_scheme_type, school_year, payment_status) values(" + id_no + ", '" + fname + "', '" + mname + "', '" + lname + "', '" + glevel + "', '" + section + "', '" + nickname + "', '" + birthday + "', '" + sex + "', '" +  birth_order + "', '" + address + "', '" + htel + "', '" + otel + "', '" + pschool + "', '" + pgrade + "', '" + dreceived + "', '" + rstatus + "', '" + pscheme + "', '" + sy + "', '" + pstatus + "');";
+            string command = "INSERT INTO student(id_number, first_name, middle_initial, last_name, grade_level, section, nickname, birthday, sex, birth_order, home_address, home_phone, office_phone, date_received, requirements_status, payment_scheme_type, school_year, payment_status, class_schedule) values(" + id_no + ", '" + fname + "', '" + mname + "', '" + lname + "', '" + glevel + "', '" + section + "', '" + nickname + "', '" + birthday + "', '" + sex + "', '" +  birth_order + "', '" + address + "', '" + htel + "', '" + otel + "', '" + dreceived + "', '" + rstatus + "', '" + pscheme + "', '" + sy + "', '" + pstatus + "', '" + sched + "');";
             MySqlCommand sqlcomm = new MySqlCommand(command, conn);
             sqlcomm.ExecuteReader();
             conn.Close();
@@ -572,7 +559,7 @@ namespace SchoolClass
         public void addMiscContacts(int id_no, string fname, string contact, string address, string occupation)
         {
             conn.Open();
-            string command = "INSERT INTO miscellaneous_contacts(id_number, misc_contact_full_name, misc_contact_contact_number, misc_contact_address, misc_contact_occupation) values(" + id_no + ", '" + fname + "', '" + contact + "', '" + address + "', '" + occupation + "');";
+            string command = "INSERT INTO miscellaneous_contacts(id_number, misc_contact_full_name, misc_contact_number, misc_contact_address, misc_contact_occupation) values(" + id_no + ", '" + fname + "', '" + contact + "', '" + address + "', '" + occupation + "');";
             MySqlCommand sqlcomm = new MySqlCommand(command, conn);
             sqlcomm.ExecuteReader();
             conn.Close();
@@ -601,8 +588,22 @@ namespace SchoolClass
             }
         }
 
-        public void addMisconduct()
+        public void addMisconduct(int id_no, string fn, string mi, string ln, string md)
         {
+            conn.Open();
+            string command = "INSERT INTO misconduct_details(id_number, mis_first_name, mis_mi, mis_last_name, misconduct_details) values(" + id_no + ", '" + fn + "', '" + mi + "', '" + ln + "', '" + md + "');";
+            MySqlCommand sqlcomm = new MySqlCommand(command, conn);
+            sqlcomm.ExecuteReader();
+            conn.Close();
+        }
+
+        public void addPSchool(int id_no, string sn, string g)
+        {
+            conn.Open();
+            string command = "INSERT INTO previous_school(id_number, school_name, school_grade) values(" + id_no + ", '" + sn + "', '" + g + "');";
+            MySqlCommand sqlcomm = new MySqlCommand(command, conn);
+            sqlcomm.ExecuteReader();
+            conn.Close();
         }
        
         public Student findStudent(int id_no)
@@ -627,17 +628,18 @@ namespace SchoolClass
                 a.address = r.GetValue(10).ToString();
                 a.htel = r.GetValue(11).ToString();
                 a.otel = r.GetValue(12).ToString();
-                a.pschool = r.GetValue(13).ToString();
-                a.pgrade = r.GetValue(14).ToString();
-                a.rdate = DateTime.Parse(r.GetValue(15).ToString());
-                a.rstatus = r.GetValue(16).ToString();
-                a.pscheme = r.GetValue(17).ToString();
-                a.sy = r.GetValue(18).ToString();
-                a.paid = r.GetValue(19).ToString();
+                a.rdate = DateTime.Parse(r.GetValue(13).ToString());
+                a.rstatus = r.GetValue(14).ToString();
+                a.pscheme = r.GetValue(15).ToString();
+                a.sy = r.GetValue(16).ToString();
+                a.paid = r.GetValue(17).ToString();
+                a.schedule = r.GetValue(18).ToString();
             }
             conn.Close();
             return a;
         }
+
+        
 
         public bool findSubject(string sn, string sy)
         {
@@ -765,6 +767,64 @@ namespace SchoolClass
             return coll;
         }
 
+        public List<Previous_School> findPSchool(int id_no)
+        {
+            List<Previous_School> coll = new List<Previous_School>();
+            conn.Open();
+            string command = "SELECT * FROM previous_school WHERE id_number=" + id_no;
+            MySqlCommand sqlcomm = new MySqlCommand(command, conn);
+            MySqlDataReader r = sqlcomm.ExecuteReader();
+            while (r.Read())
+            {
+                Previous_School s = new Previous_School();
+                s.id_no = Convert.ToInt32(r.GetValue(0).ToString());
+                s.name = r.GetValue(1).ToString();
+                s.grade = r.GetValue(2).ToString();
+                coll.Add(s);
+            }
+            conn.Close();
+            return coll;
+        }
+
+        public Misconduct findMisconduct(int id_no)
+        {
+            Misconduct a = new Misconduct(); conn.Open();
+            string command = "SELECT * FROM misconduct_details WHERE id_number=" + id_no + ";";
+            MySqlCommand sqlcomm = new MySqlCommand(command, conn);
+            MySqlDataReader r = sqlcomm.ExecuteReader();
+            while (r.Read())
+            {
+                a.id_no = Convert.ToInt32(r.GetValue(0).ToString());
+                a.fname = r.GetValue(1).ToString();
+                a.mname = r.GetValue(2).ToString();
+                a.lname = r.GetValue(3).ToString();
+                a.details = r.GetValue(4).ToString();
+            }
+            conn.Close();
+            return a;
+        }
+
+        public List<Misc_Contacts> findContacts(int id_no)
+        {
+            conn.Open();
+            List<Misc_Contacts> cont = new List<Misc_Contacts>();
+            string command = "SELECT * FROM miscellaneous_contacts WHERE id_number=" + id_no + ";";
+            MySqlCommand sqlcomm = new MySqlCommand(command, conn);
+            MySqlDataReader r = sqlcomm.ExecuteReader();
+            while (r.Read())
+            {
+                Misc_Contacts a = new Misc_Contacts();
+                a.id_no = Convert.ToInt32(r.GetValue(0).ToString());
+                a.fname = r.GetValue(1).ToString();
+                a.contact = r.GetValue(2).ToString();
+                a.address = r.GetValue(3).ToString();
+                a.occupation = r.GetValue(4).ToString();
+                cont.Add(a);
+            }
+            conn.Close();
+            return cont;
+        }
+
         public void deleteStudent(int id_no)
         {
             conn.Open();
@@ -837,6 +897,16 @@ namespace SchoolClass
             conn.Close();
         }
 
+        public void deletePSchool(int id_no)
+        {
+            conn.Open();
+            string command = "DELETE FROM previous_school WHERE id_number=" + id_no;
+            MySqlCommand sqlcomm = new MySqlCommand(command, conn);
+            sqlcomm.ExecuteReader();
+            conn.Close();
+        }
+
+
         public List<String> findSections()
         {
             List<String> coll = new List<String>();
@@ -853,6 +923,15 @@ namespace SchoolClass
             return coll;
         }
 
+        public void deleteMisconductDetails(int id_no)
+        {
+            conn.Open();
+            string command = "DELETE FROM misconduct_details WHERE id_number=" + id_no + ";";
+            MySqlCommand sqlcomm = new MySqlCommand(command, conn);
+            sqlcomm.ExecuteReader();
+            conn.Close();
+        }
+
         //mass delete vs single delete
         public void deleteStudentGrade(int id_no, string sn, string sy)
         {
@@ -865,13 +944,14 @@ namespace SchoolClass
 
         public void deleteDetails(int id_no)
         {
+            deleteMisconduct(id_no);
             deleteFather(id_no);
             deleteMother(id_no);
             deleteGuardian(id_no);
             deleteSiblings(id_no);
             deleteStudentGrades(id_no);
-            //deleteMiscContacts(id_no);
-            deleteMisconduct(id_no);
+            deletePSchool(id_no);
+            deleteMiscContacts(id_no);
             deleteStudent(id_no);
         }
 

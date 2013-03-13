@@ -14,7 +14,6 @@ namespace WindowsFormsApplication1
     {
         public Student a;
         public Methods instance = new Methods();
-        public int id_no = 0;
         
         public int returnIDNO()
         {
@@ -30,6 +29,8 @@ namespace WindowsFormsApplication1
             label4.Text = a.lname + ", " + a.fname + " " + a.mname;
             textBox1.Text = a.sy;
             listSubjectGrades(id_no);
+            Misconduct m = instance.findMisconduct(id_no);
+            richTextBox1.Text = m.details;
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -46,9 +47,11 @@ namespace WindowsFormsApplication1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Are you sure you want to update this student's information?", "Confirmation Required", MessageBoxButtons.YesNo);
-            if (DialogResult == DialogResult.Yes)
+            DialogResult result = MessageBox.Show("Are you sure you want to update this student's information?", "Confirmation Required", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
             {
+                instance.deleteMisconduct(a.id_no);
+                instance.addMisconduct(a.id_no, a.fname, a.mname, a.lname, richTextBox1.Text);
                 MessageBox.Show("Details successfully updated.", "Update Successful", MessageBoxButtons.OK);
             }
         }

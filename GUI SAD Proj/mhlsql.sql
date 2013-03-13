@@ -17,13 +17,14 @@ birth_order VARCHAR(10) ,
 home_address VARCHAR(255),
 home_phone VARCHAR(15),
 office_phone VARCHAR(15),
-previous_school_name VARCHAR(60) ,
-previous_school_grade_level VARCHAR(60) ,
+/*previous_school_name VARCHAR(60) , 13*/
+/*previous_school_grade_level VARCHAR(60) , 14*/
 date_received DATE ,
 requirements_status VARCHAR(5),
 payment_scheme_type VARCHAR(20),
 school_year VARCHAR(10),
-payment_status VARCHAR(255)
+payment_status VARCHAR(255),
+class_schedule VARCHAR (20)
 )ENGINE=INNODB; 
 
 CREATE TABLE father_information(
@@ -54,9 +55,10 @@ FOREIGN KEY (id_number) REFERENCES student(id_number)
 );
 
 CREATE TABLE sibling_information(
-id_number INT(15) NOT NULL PRIMARY KEY,
+id_number INT(15) NOT NULL,
 sibling_full_name VARCHAR(255),
 sibling_birthday DATE,
+PRIMARY KEY (id_number, sibling_full_name),
 FOREIGN KEY (id_number) REFERENCES student(id_number)
 );
 
@@ -90,19 +92,21 @@ FOREIGN KEY (subject_name, school_year) REFERENCES subjects(subject_name, school
 );
 
 CREATE TABLE miscellaneous_contacts(
-id_number INT(15) NOT NULL PRIMARY KEY,
+id_number INT(15) NOT NULL,
 misc_contact_full_name VARCHAR(255) NOT NULL,
 misc_contact_number VARCHAR(15),
 misc_contact_address VARCHAR(255),
-nuisc_contact_occupation VARCHAR(100),
-PRIMARY KEY (id_number),
+misc_contact_occupation VARCHAR(100),
+PRIMARY KEY (id_number, misc_contact_full_name),
 FOREIGN KEY (id_number) REFERENCES student(id_number)
 );
 
 CREATE TABLE previous_school (
-id_number INT(15) NOT NULL PRIMARY KEY,
+id_number INT(15) NOT NULL,
 school_name VARCHAR(255) NOT NULL,
-school_grade VARCHAR(255) NOT NULL
+school_grade VARCHAR(255) NOT NULL,
+PRIMARY KEY (id_number, school_grade),
+FOREIGN KEY (id_number) REFERENCES student(id_number)
 );
 
 CREATE TABLE misconduct_details(
@@ -129,13 +133,12 @@ birth_order,
 home_address,
 office_phone,
 home_phone,
-previous_school_name,
-previous_school_grade_level,
 date_received,
 requirements_status,
 payment_scheme_type,
 school_year,
-payment_status
+payment_status,
+class_schedule
 )
 VALUES(
 '104339',
@@ -151,13 +154,12 @@ VALUES(
 'Taguig City',
 '5451482',
 '1231231',
-'UPRHS',
-'4th Year Highschool',
 "2013-04-03",
 '10011',
 'Annual',
 '2013-2014',
-'Unpaid'
+'Unpaid',
+'a.m.'
 );
 
 INSERT INTO student(
@@ -174,13 +176,12 @@ birth_order,
 home_address,
 office_phone,
 home_phone,
-previous_school_name,
-previous_school_grade_level,
 date_received,
 requirements_status,
 payment_scheme_type,
 school_year,
-payment_status
+payment_status,
+class_schedule
 )
 VALUES(
 '103523',
@@ -196,13 +197,12 @@ VALUES(
 'Quezon City',
 '7148266',
 '09053933582',
-'STC',
-'4th Year Highschool',
 "2013-04-03",
 '11111',
 'Annual',
 '2013-2014',
-'Paid'
+'Paid',
+'p.m.'
 );
 
 INSERT INTO father_information(

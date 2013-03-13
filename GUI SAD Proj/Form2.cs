@@ -114,6 +114,10 @@ namespace WindowsFormsApplication1
             dataGridView1.Rows.Clear();
             foreach (Student a in student_coll)
                 dataGridView1.Rows.Add(a.id_no, a.lname, a.fname, a.glevel, a.section);
+            List<String> sections = instance.findSections();
+            comboBox1.Items.Clear();
+            foreach (string a in sections)
+                comboBox1.Items.Add(a);
         }
 
         private void button4_Click_1(object sender, EventArgs e)
